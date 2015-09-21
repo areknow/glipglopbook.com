@@ -1,3 +1,5 @@
+$teal: #26a69a;
+
 html {
   
   background: #333333;
@@ -34,6 +36,12 @@ html {
     }
     .glip {
       padding-left: 0;
+    }
+    .button-collapse {
+      transition: all .3s ease;
+      &:hover {
+        color: $teal;
+      }
     }
   }
   .menu {
@@ -128,10 +136,10 @@ html {
     width: 0;
     height: 0;
     border-style: solid;
-    border-width: 0 7px 10px 7px;
+    border-width: 0 13px 10px 13px;
     border-color: transparent transparent #e6e6e6 transparent;
     top: -10px;
-    right: 20px;
+    right: 14px;
   }
   .white-button {
     color: white!important;
@@ -160,7 +168,7 @@ html {
   margin-top: 50px;
   position: relative;
   .item {
-    height: 400px;
+    height: 450px;
     width: 100%;
     background: #8b8b8b;
     display: block;
@@ -193,7 +201,7 @@ html {
   }
   .owl-nav {
     display: none; 
-  }
+  } 
   .owl-controls {
     position: absolute;
     top: 0;
@@ -218,14 +226,35 @@ html {
       }
     }
   }
+  .btn-floating {
+    position: absolute;
+    z-index: 2;
+    bottom: -27px;
+    margin: auto;
+    left: 0;
+    right: 0;
+    i {
+      font-size: 30px;
+      padding-top: 2px;
+    }
+  }
 }
 
-
+#about:before {
+  content: "";  
+  position: absolute;
+  top: -10px;
+  width:100%;
+  height: 10px;
+  box-shadow: 0 5px 100px black;
+}
 #about {
   background: #f4f4f4;
   padding-bottom: 0;
+  position: relative;
   .circle-row {
     padding-top: 40px;
+    max-width: 1000px;
     .about-circle {
       border: 10px solid rgba(0, 0, 0, 0.46);
       height: 250px;
@@ -273,8 +302,9 @@ html {
     background: #ececec;
     border: 1px solid #bfbfbf;
     border-width: 1px 0 1px 0;
-    padding: 40px 5%;
+    padding: 40px 5% 80px 5%;
     position: relative;
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.2);
     #about-tab2, #about-tab3 {
       display: none;
     }
@@ -308,7 +338,18 @@ html {
       border-width: 15px;
     }
   }
-  
+  .btn-floating {
+    position: absolute;
+    z-index: 2;
+    bottom: -27px;
+    margin: auto;
+    left: 0;
+    right: 0;
+    i {
+      font-size: 30px;
+      padding-top: 2px;
+    }
+  }
 }
 
 
@@ -325,27 +366,39 @@ html {
     position: relative;
     padding-bottom: 20px;
     .col {
-      padding: 0px 10%;
+      padding: 0px 7%;
       text-align: center;
       color: white;
       position: relative;
       .btn-flat {
+        float: right;
         text-align: left;
         color: white;
         text-transform: uppercase;
         letter-spacing: 1px;
+        margin-bottom: 30px;
         border-radius: 2px;
-        box-shadow: 0 0 0 1px hsla(0, 0%, 100%, 0.6);
         overflow: hidden;
-        font-size: 11px;
-        float: right;
+        font-size: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        border-radius: 2px;
         margin-top: 20px;
-        
-        &:hover {
-          background: black;
-          box-shadow:none;
-          cursor: pointer;
-          color: #26a69a;
+        div {
+          display: inline-block;
+        }
+        i {
+          vertical-align: middle;
+          margin-bottom: 2px;
+          transition: all .3s ease;
+          padding: 0;
+          width: 10px;
+          left: 0;
+        }
+      }
+      .btn-flat:hover {
+        background: rgba(255, 255, 255, 0.2);
+        i {
+          color: $teal;
         }
       }
     }
@@ -362,7 +415,7 @@ html {
       content: "";
       height: 1px;
       width: 50px;
-      background: #26a69a;
+      background: $teal;
       bottom: -20px;
       left: 0;
       right: 0;
@@ -383,33 +436,32 @@ html {
         letter-spacing: 1px;
         margin-bottom: 30px;
         border-radius: 2px;
-        box-shadow: 0 0 0 1px hsla(0, 0%, 100%, 0.6);
         overflow: hidden;
         font-size: 12px;
-        
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        border-radius: 2px;
         i {
           font-size: 18px;
           margin-right: 20px;
           vertical-align: middle;
+          transition: all .3s ease;
         }
       }
       a:hover {
-        background: black;
-        box-shadow:none;
-      i {
-        color: #26a69a;
+        background: rgba(255, 255, 255, 0.2);
+        i {
+          color: $teal;
         }
       }
     }
-    
   }
   .started-row:before {
     position: absolute;
     content: "";
-    height: 100%;
     width: 1px;
     left: 0;
-    top:10px;
+    top: 17px;
+    bottom: 40px;
     right: 0;
     margin: auto;
     border: 1px dashed rgba(255, 255, 255, 0.38);
@@ -422,6 +474,9 @@ html {
   background: #333333;
   .row {
     margin-bottom: 0;
+    .col {
+      position: relative;
+    }
   }
   h3 {
     font-size: 20px;
@@ -437,7 +492,7 @@ html {
     text-align: left;
     opacity: .6;
     cursor: pointer;
-    transition: all .2s ease;
+    transition: all .3s ease;
     &:hover {
       opacity: 1;
     }

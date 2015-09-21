@@ -1,0 +1,20 @@
+{
+  "path": {
+    "css/base.scss": {
+      "sass.enabled": true,
+      "sass.options": {
+        "sourceComments": false,
+        "outputStyle": "compressed",
+        "sourceMap": false 
+      }
+    },
+    "css/style.scss": {
+      "sass.enabled": true,
+      "sass.options": {
+        "sourceComments": false,
+        "outputStyle": "compressed",
+        "sourceMap": false 
+      }
+    }
+  }
+}

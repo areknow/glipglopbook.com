@@ -2,6 +2,7 @@ $(function() {
   
   //init circles
   aboutCircleSize();
+  moveNubbin(activeTab(),"snap");
   
 //  $('select').material_select();
   
@@ -25,11 +26,11 @@ $(function() {
   $("#btn-search").click(function(event){
     event.preventDefault();
     if ( $(this).hasClass("isDown") ) {
-      $("#search-input").stop().animate({width:"0"}, 200);    
+      $("#search-input").stop().animate({width:"0"}, 100);    
       $("#btn-search").removeClass('white-button');
     } 
     else {
-      $("#search-input").stop().animate({width:"150"}, 200, function() {
+      $("#search-input").stop().animate({width:"150"}, 100, function() {
         $("#search-input").focus();                
         $("#btn-search").addClass('white-button');           
       });
@@ -102,6 +103,24 @@ $(function() {
   
   
   
+  
+  //anchor scroll
+  $('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') 
+    && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top
+        }, 1000, 'easeInOutExpo');
+        return false;
+      }
+    }
+  });
+  
+  
+  
   //animate on scroll initiate
 //  new WOW().init();
   
@@ -135,6 +154,7 @@ $(window).resize(function() {
 
 function aboutCircleSize() {
   $(".about-circle").height($(".about-circle").width());
+  
 }
 function hideTabs() {
   for (x = 1; x < 4; x++) { 
