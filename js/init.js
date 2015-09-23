@@ -97,7 +97,18 @@ $(function() {
     }
   );
   
-  
+  //side nav accordion slidetoggle and anim
+  $(".collapse-header").click(function(){
+    $(".collapse-menu").slideToggle();
+    if (!$(".collapse-header").hasClass('active')) {
+      $(".collapse-header .material-icons").css('-webkit-transform','rotate(-180deg)'); 
+    }
+    else {
+      $(".collapse-header .material-icons").css('-webkit-transform','rotate(0deg)');
+    }
+    $(".collapse-header").toggleClass('active');
+    
+  });
   
   
   

@@ -21,15 +21,18 @@
     <!-- SLIDE OUT -->
     <ul id="slide-out" class="side-nav no-select">
       <div class="side-menu-header"><img src="res/logo/white.png"></div>
-      <li><a href="#!">NEW ARRIVALS</a></li>
       <li class="collapser">
-        <div class="collapse-header"><div>CATEGORIES</div></div>
+        <div class="collapse-header">
+          <div>CATEGORIES</div>
+          <i class="material-icons">arrow_drop_down</i>
+        </div>
         <div class="collapse-menu">
-          <div>MATH</div>
-          <div>SCIENCE</div>
-          <div>HISTORY</div>
+          <a href="#">MATH</a>
+          <a href="#">SCIENCE</a>
+          <a href="#" class="last">HISTORY</a>
         </div>
       </li>
+      <li><a href="#!">NEW ARRIVALS</a></li>
       <li><a href="#!">BEST SELLERS</a></li>
       <li><a href="#!">SEE ALL BOOK</a></li>
     </ul>

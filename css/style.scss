@@ -169,6 +169,10 @@ html {
   z-index: 999;
   li {
     border-bottom: 1px solid #ddd;
+    transition: all .3s ease;
+    &:hover {
+      background: #e5e5e5;
+    }
   }
   .side-menu-header {
     background: #262626; 
@@ -181,17 +185,44 @@ html {
     }
   }
   .collapser {
+    padding: 0;
     .collapse-header {
+      position: relative;
+      i {
+        position: absolute;
+        right: 30px;
+        top: 20px;
+        cursor: pointer;
+        color: grey;
+        transition: all .3s ease;
+      }
       div {
         line-height: 64px;
+        padding: 0 30px;
+        cursor: pointer;
+        transition: all .3s ease;
+      }
+    }
+    .collapse-header:hover {
+      background: #e5e5e5;
+      i {
+        color: black;
       }
     }
     .collapse-menu {
-      div {
+      display: none;
+      border-top:1px solid #ddd;
+      a {
         line-height: 64px;
+        border-bottom:1px solid #ddd;
+        padding: 0 45px;
+        transition: all .3s ease;
         &:hover {
-          background: white;
+          background: #e5e5e5;
         }
+      }
+      .last {
+        border-bottom: none;
       }
     }
   }
@@ -222,7 +253,7 @@ html {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    cursor: ew-resize;
+    cursor: move;
     .slide-text {
       float: right;
       background: rgba(0, 0, 0, 0.8);
