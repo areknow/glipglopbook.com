@@ -1,11 +1,23 @@
+/************************************************
+------------------ COLORS -----------------------
+************************************************/
 $teal: #26a69a;
 
+
+
+
 html {
-  
-  background: #333333;
+  background: #333333;//move to base?
 }
 
 
+
+
+
+
+/************************************************
+------------------ NAV --------------------------
+************************************************/
 .navigation-bar {
   z-index: 99;
   background: #191919;
@@ -36,6 +48,14 @@ html {
     }
     .glip {
       padding-left: 0;
+      height: 50px;
+
+      img {
+        position: absolute;
+        height: 50%;
+        width: auto;
+        top: 15px;
+      }
     }
     .button-collapse {
       transition: all .3s ease;
@@ -145,9 +165,6 @@ html {
     color: white!important;
   }
 }
-
-
-
 #slide-out {
   z-index: 999;
   li {
@@ -156,14 +173,43 @@ html {
   .side-menu-header {
     background: #262626; 
     color: white;
-    padding: 30px;
+    padding: 80px 30px 20px 30px;
     font-size: 30px;
+    img {
+      height: 60px; 
+      width: auto;
+    }
+  }
+  .collapser {
+    .collapse-header {
+      div {
+        line-height: 64px;
+      }
+    }
+    .collapse-menu {
+      div {
+        line-height: 64px;
+        &:hover {
+          background: white;
+        }
+      }
+    }
+  }
+  .collapser:hover {
+    background: none;
   }
 }
 
 
 
 
+
+
+
+
+/************************************************
+------------------ HERO -------------------------
+************************************************/
 .header-slider {
   margin-top: 50px;
   position: relative;
@@ -176,13 +222,14 @@ html {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    cursor: move;
+    cursor: ew-resize;
     .slide-text {
       float: right;
       background: rgba(0, 0, 0, 0.8);
       color: white;
       max-width: 400px;
       padding: 20px;
+      border-radius: 2px;
       .title {
         font-size: 30px;
         font-weight: 100;
@@ -227,19 +274,22 @@ html {
     }
   }
   .btn-floating {
-    position: absolute;
-    z-index: 2;
     bottom: -27px;
-    margin: auto;
-    left: 0;
-    right: 0;
-    i {
-      font-size: 30px;
-      padding-top: 2px;
-    }
   }
 }
 
+
+
+
+
+
+
+
+
+
+/************************************************
+------------------ ABOUT ------------------------
+************************************************/
 #about:before {
   content: "";  
   position: absolute;
@@ -254,7 +304,10 @@ html {
   position: relative;
   .circle-row {
     padding-top: 40px;
-    max-width: 1000px;
+    max-width: 1200px;
+    .waves-effect {
+      display: inherit;
+    }
     .about-circle {
       border: 10px solid rgba(0, 0, 0, 0.46);
       height: 250px;
@@ -268,6 +321,7 @@ html {
       position: relative;
       transition: all .3s ease;
       cursor: pointer;
+      -webkit-mask-image: -webkit-radial-gradient(circle, white 100%, black 100%);
       .inner {
         height: 37px;
         width: 100%;
@@ -304,7 +358,8 @@ html {
     border-width: 1px 0 1px 0;
     padding: 40px 5% 80px 5%;
     position: relative;
-    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 10px 20px -5px rgba(0, 0, 0, 0.1);
+    
     #about-tab2, #about-tab3 {
       display: none;
     }
@@ -339,25 +394,22 @@ html {
     }
   }
   .btn-floating {
-    position: absolute;
-    z-index: 2;
     bottom: -27px;
-    margin: auto;
-    left: 0;
-    right: 0;
-    i {
-      font-size: 30px;
-      padding-top: 2px;
-    }
   }
 }
 
 
 
+
+
+
+/************************************************
+------------------ STARTED ----------------------
+************************************************/
 #started {
   background: transparent;
   position: relative;
-  padding: 150px 0 80px 0;
+  padding-bottom: 80px;
   h1 {
     color: white;
     margin-bottom: 100px;
@@ -365,8 +417,11 @@ html {
   .started-row {
     position: relative;
     padding-bottom: 20px;
+    max-width: 1400px;
+    .form, .links {
+      padding: 0 7%;
+    }
     .col {
-      padding: 0px 7%;
       text-align: center;
       color: white;
       position: relative;
@@ -377,6 +432,7 @@ html {
         text-transform: uppercase;
         letter-spacing: 1px;
         margin-bottom: 30px;
+        margin-right: 10px;
         border-radius: 2px;
         overflow: hidden;
         font-size: 12px;
@@ -394,6 +450,10 @@ html {
           width: 10px;
           left: 0;
         }
+      }
+      .btn-flat:disabled {
+        pointer-events: none;
+        opacity: .5;
       }
       .btn-flat:hover {
         background: rgba(255, 255, 255, 0.2);
@@ -424,7 +484,7 @@ html {
     .links {
       text-align: center;
       p {
-        margin-bottom: 70px;
+        margin-bottom: 67px;
       }
       a {
         display: block;
@@ -453,6 +513,54 @@ html {
           color: $teal;
         }
       }
+      .input-wrapper {
+        position: relative;
+        i {
+          font-size: 18px;
+          position: absolute;
+          left: 0;
+          height: 100%;
+          padding-top: 10px;
+          padding-left: 20px;
+          transition: all .3s ease;
+        }
+        input {
+          display: block;
+          text-align: left;
+          padding: 12px 0 12px 57px;
+          width: 100%;
+          color: white;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          margin-bottom: 30px;
+          border-radius: 2px;
+          overflow: hidden;
+          font-size: 12px;
+          border: 1px solid rgba(255, 255, 255, 0.6);
+          border-radius: 2px;
+          height: auto;
+          box-sizing: border-box;
+        }
+        input::-webkit-input-placeholder {color: #fff;}
+        input:-moz-placeholder {color: #fff;}
+        input::-moz-placeholder {color: #fff;}
+        input:-ms-input-placeholder {  color: #fff;}
+        input:focus {
+          border: 1px solid rgba(255, 255, 255, 0.6);
+          box-shadow: none;
+          background: rgba(255, 255, 255, 0.2);
+        }
+      }
+      .input-wrapper:hover {
+        input {
+          border: 1px solid rgba(255, 255, 255, 0.6);
+          box-shadow: none;
+          background: rgba(255, 255, 255, 0.2);
+        }
+        i {
+          color: $teal;
+        }
+      }
     }
   }
   .started-row:before {
@@ -466,9 +574,29 @@ html {
     margin: auto;
     border: 1px dashed rgba(255, 255, 255, 0.38);
   }
+  #modal1 {
+    .modal-input-row {
+      margin-top: 50px;
+    }
+    button:disabled {
+      opacity: .5;
+    }
+  }
 }
 
 
+
+
+
+
+
+
+
+
+
+/************************************************
+------------------ FOOTER -----------------------
+************************************************/
 #footer {
   padding: 50px 5%;
   background: #333333;
@@ -478,10 +606,17 @@ html {
       position: relative;
     }
   }
+  img {
+    height: 30px;
+    position: absolute;
+  }
   h3 {
     font-size: 20px;
     font-weight: 100;
     color: white;
+    margin: 0;
+    margin-bottom: 20px;
+    padding: 0;
   }
   p {
     color: #7c7c7c;
@@ -490,11 +625,13 @@ html {
   a {
     display: block;
     text-align: left;
-    opacity: .6;
+//    opacity: .6;
     cursor: pointer;
     transition: all .3s ease;
+    color: #5f5f5f;
     &:hover {
       opacity: 1;
+      color: $teal;
     }
   }
 }

@@ -15,6 +15,14 @@
         "outputStyle": "compressed",
         "sourceMap": false 
       }
+    },
+    "css/verify.scss": {
+      "sass.enabled": true,
+      "sass.options": {
+        "sourceComments": false,
+        "outputStyle": "compressed",
+        "sourceMap": false 
+      }
     }
   }
 }

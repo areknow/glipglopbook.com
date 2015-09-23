@@ -3,7 +3,7 @@ a {
   color: #26a69a;
 }
 section {
-  padding: 100px 0;
+  padding: 140px 0;
   h1 {
     font-size: 36px;
     font-weight: 100;
@@ -17,6 +17,19 @@ section {
   
 }   
 
+.col {
+//  padding: 0;
+}
+
+.login-overlay {
+  position: fixed;
+  background: #ffffff;
+  height: 100%;
+  width: 100%;
+  z-index: 9;
+  opacity: 0;
+  display: none;
+}
  
 
 
@@ -27,4 +40,24 @@ section {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+
+.btn-floating {
+  position: absolute;
+  z-index: 2;
+  margin: auto;
+  left: 0;
+  right: 0;
+  -webkit-mask-image: -webkit-radial-gradient(circle, white 100%, black 100%);
+  i {
+    font-size: 30px;
+    padding-top: 2px;
+  }
+}
+
+
+.error {
+  border-bottom: 1px solid #ff0000 !important;
+  box-shadow: 0 1px 0 0 #ff0000 !important;
 }

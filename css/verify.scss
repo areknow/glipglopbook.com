@@ -1,0 +1,38 @@
+html {
+  background: #d8d8d8;
+}
+
+.verified {
+  background: white;
+  width: 500px;
+  height: 400px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  border-radius: 3px;
+  overflow: hidden;
+  
+  .header {
+    padding: 40px;
+    width: 100%;
+    background: #262626;
+    img {
+      height: 60px;
+      margin: auto;
+    }
+  }
+  .body {
+    background: white;
+    padding: 40px;
+    h5 {
+      margin-bottom: 30px;
+    }
+    a {
+      margin-top: 30px;
+//      float: right;
+    }
+  }
+}
