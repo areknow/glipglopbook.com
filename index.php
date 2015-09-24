@@ -51,7 +51,7 @@
         <a href="." class="block"><i class="material-icons">home</i></a>
         <div id="btn-account" class="block"><i class="material-icons">account_circle</i></div>
       </div>
-      <form method="post" action="php/login.php" class="drop-down-login">
+      <form method="post" action="php/login.php" class="drop-down-login z-depth-2">
         <div><input name="email" placeholder="Email" type="text"></div>
         <div><input name="password" placeholder="Password" type="password"></div>
         <div><button id="btn-login" name="login-submit" type="submit" class="waves-effect waves-light">ENTER</button></div>
@@ -67,19 +67,19 @@
       <a href="#about" class="btn-floating btn-large waves-effect "><i class="material-icons">keyboard_arrow_down</i></a>
       <div class="owl-carousel">
         <div class="item slide1">
-          <div class="slide-text z-depth-2">
+          <div class="slide-text z-depth-1">
             <div class="title">Save your money</div>
             <div class="sub">Use your money on things that really matter. We help you keep your money in the bank.</div>
           </div>
         </div>
         <div class="item slide2">
-          <div class="slide-text z-depth-2">
+          <div class="slide-text z-depth-1">
             <div class="title">Make Connections</div>
             <div class="sub">Get acquainted with classmates on your campus that are also selling school books.</div>
           </div>
         </div>
         <div class="item slide3">
-          <div class="slide-text z-depth-2">
+          <div class="slide-text z-depth-1">
             <div class="title">Study Harder</div>
             <div class="sub">Spend less time worrying about getting your books, and more time focusing on your grades.</div>
           </div>
@@ -166,7 +166,7 @@
               <i class="material-icons prefix">live_help</i>Read the FAQ</a>
             <a href="#!" class="waves-effect waves-light">
               <i class="material-icons prefix">school</i>Terms of Service</a>
-            <a href="#!" class="waves-effect waves-light">
+            <a href="https://github.com/arnaudcrowther/glipglopbook.com" class="waves-effect waves-light">
               <i class="fab fab-github"></i>GitHub Documentation</a>
           </div>
         </div>
