@@ -27,9 +27,9 @@ if(isset($_POST['new-account-submit'])) {
   }
   
   //start session variables
-  session_start();
-  $_SESSION['id'] = $row['id'];
-  $_SESSION['logged'] = TRUE;
+//  session_start();
+//  $_SESSION['id'] = $row['id'];
+//  $_SESSION['logged'] = TRUE;
   
   //mail verification link
   $to      = $email;

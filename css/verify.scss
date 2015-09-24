@@ -26,13 +26,24 @@ html {
   }
   .body {
     background: white;
-    padding: 40px;
+    padding: 30px 40px 40px 40px;
     h5 {
       margin-bottom: 30px;
     }
-    a {
+    a, button {
       margin-top: 30px;
 //      float: right;
     }
+  }
+}
+
+.forgotten {
+  height: 470px;
+  .row .col.s12 {
+    padding: 0;
+    
+  }
+  .input-field label {
+    left: 0;
   }
 }

@@ -57,7 +57,7 @@
         <div><button id="btn-login" name="login-submit" type="submit" class="waves-effect waves-light">ENTER</button></div>
         <div class="help-row">
           <a id="btn-new-account-link" class="new" href="#started">new account</a>
-          <a class="help" href="#!">help?</a>
+          <a class="help" href="verify/forgot.php">help?</a>
         </div>
       </form>
     </div>
