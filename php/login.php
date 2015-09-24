@@ -30,7 +30,7 @@ if(isset($_POST['login-submit'])) {
   else {
     session_start();
     $_SESSION['logged'] = FALSE;
-    header("Location: ../");
+    header("Location: ../profile");
     exit;
   }
 }
