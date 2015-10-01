@@ -1,28 +1,38 @@
 {
-  "path": {
-    "css/base.scss": {
-      "sass.enabled": true,
-      "sass.options": {
-        "sourceComments": false,
-        "outputStyle": "compressed",
-        "sourceMap": false 
-      }
-    },
-    "css/style.scss": {
-      "sass.enabled": true,
-      "sass.options": {
-        "sourceComments": false,
-        "outputStyle": "compressed",
-        "sourceMap": false 
-      }
-    },
-    "css/verify.scss": {
-      "sass.enabled": true,
-      "sass.options": {
-        "sourceComments": false,
-        "outputStyle": "compressed",
-        "sourceMap": false 
-      }
+    "path": {
+        "css/base.scss": {
+            "sass.enabled": true,
+            "sass.options": {
+                "sourceComments": false,
+                "outputStyle": "compressed",
+                "sourceMap": false
+            }
+        },
+        "css/style.scss": {
+            "sass.enabled": true,
+            "sass.options": {
+                "sourceComments": false,
+                "outputStyle": "compressed",
+                "sourceMap": false
+            },
+            "linting.collapsed": true,
+            "fonts.fontSize": "10px"
+        },
+        "css/verify.scss": {
+            "sass.enabled": true,
+            "sass.options": {
+                "sourceComments": false,
+                "outputStyle": "compressed",
+                "sourceMap": false
+            }
+        },
+        "css/profile.scss": {
+            "sass.enabled": true,
+            "sass.options": {
+                "sourceComments": false,
+                "outputStyle": "compressed",
+                "sourceMap": false
+            }
+        }
     }
-  }
 }

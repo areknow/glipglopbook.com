@@ -1,15 +1,7 @@
 <?php
 session_start();
 if ($_SESSION['logged'] == true) {
-  include '../php/con.php';
-  $userid = $_SESSION['id'];
   $logged = true;
-  $result = mysql_query("SELECT * FROM users WHERE id = '$userid'");
-  $row = mysql_fetch_array($result);
-  $first = $row['first'];
-  $last = $row['last'];
-  $email = $row['email'];
-  $phone = $row['phone'];
 }
 else {
   header('Location: ../');
@@ -22,7 +14,7 @@ else {
     <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
     <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no'>
     <meta name='author' content='Arnaud Crowther, Alex Osbourne, Amanda Labelle, Eric Maul'>
-    <title>GlipGlop | Profile</title>
+    <title>GlipGlop | Transactions</title>
     <link rel="stylesheet" href="../materialize/css/materialize.min.css" type="text/css">
     <link rel="stylesheet" href="../plugins/owl.carousel/assets/owl.carousel.css" type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -33,7 +25,7 @@ else {
     <link rel="stylesheet" href="../css/profile.css" type="text/css">
   </head>
   <body>
-    <div class="bg bg-profile"></div>
+    <div class="bg bg-transactions"></div>
     <div class="login-overlay"></div>
     
     <!-- SLIDE OUT -->
@@ -72,7 +64,7 @@ else {
       <form class="drop-down-login drop-down-admin z-depth-2">
         <div class="top logged-in-menu">
           <a href="../profile/" class="menu-item menu-top">
-            <div><?php echo $first; ?></div>
+            <div>Arnaud</div>
             <span>View profile</span>
           </a>
           <a href="../dashboard/"  class="menu-item">
@@ -108,41 +100,7 @@ else {
     
     <section class="profile">
       <div class="sheet z-depth-2">
-        <h1>Profile</h1>
-        <form id="frm-profile" class="inner">
-          <div class="row">
-            <div class="col s12">
-              <div class="input-field col s6">
-                <input name="first" id="first_name" type="text" class="validate" value="<?php echo $first; ?>">
-                <label for="first_name">First Name</label>
-              </div>
-              <div class="input-field col s6">
-                <input name="last" id="last_name" type="text" class="validate"  value="<?php echo $last; ?>">
-                <label for="last_name">Last Name</label>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col s12">
-              <div class="row">
-                <div class="input-field col s12">
-                  <input name="email" id="email" type="email" class="validate" value="<?php echo $email; ?>">
-                  <label for="email" data-error="wrong">Email</label>
-                </div>
-              </div>
-            </div>
-            <div class="col s12">
-              <div class="row">
-                <div class="input-field col s12">
-                  <input name="phone" id="phone" type="text" class="validate" value="<?php echo $phone; ?>">
-                  <label for="phone">Phone</label>
-                </div>
-              </div>
-            </div>
-          </div>
-          <input name="userid" type="hidden" value="<?php echo $userid; ?>">
-        </form>
-        <a id="btn-profile-save" class="btn-floating btn-large waves-light green sheet-button"><i class="material-icons">check</i></a>
+        <h1>Transactions</h1>
       </div>
     </section>
   </body>

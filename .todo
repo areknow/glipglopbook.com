@@ -7,3 +7,7 @@ TODO LIST
 - money?
 - fix plugins (materialize)
 - add verification checks on all scripts
+- html email link <a>
+- if(logged){ hide login modal }
+- /password failsafe if navigated to
+- analytics

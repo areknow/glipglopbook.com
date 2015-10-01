@@ -1,3 +1,13 @@
+<?php
+session_start();
+if ($_SESSION['logged'] == true) {
+  $logged = true;
+  $hidden = "hidden";
+}
+else {
+  $adminhidden = "hidden";
+}
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -51,20 +61,64 @@
         <a href="." class="block"><i class="material-icons">home</i></a>
         <div id="btn-account" class="block"><i class="material-icons">account_circle</i></div>
       </div>
-      <form method="post" action="php/login.php" class="drop-down-login z-depth-2">
-        <div><input name="email" placeholder="Email" type="text"></div>
-        <div><input name="password" placeholder="Password" type="password"></div>
-        <div><button id="btn-login" name="login-submit" type="submit" class="waves-effect waves-light">ENTER</button></div>
-        <div class="help-row">
-          <a id="btn-new-account-link" class="new" href="#started">new account</a>
-          <a class="help" href="verify/forgot.php">help?</a>
+      <form class="drop-down-login z-depth-2 <?php echo $hidden;?>">
+        <div class="top">
+          <p>Access your profile</p>
+          <p class="invalid">Please try again</p>
+          <div><input name="email" placeholder="Email" type="text"></div>
+          <div><input name="password" placeholder="Password" type="password"></div>
+          <a class="help" href="verify/forgot.php">
+            <i class="material-icons">help</i>
+            <span>Forgot password</span>
+          </a>
+          <div>
+            <button id="btn-login" name="login-submit" type="submit" class="waves-effect waves-light">ENTER</button>
+          </div>
+        </div>
+        <div class="bottom">
+          <a id="btn-new-account-link" href="#started">Create a new account</a>
+        </div>
+      </form>
+      <form class="drop-down-login drop-down-admin z-depth-2 <?php echo $adminhidden;?>">
+        <div class="top logged-in-menu">
+          <a href="profile/" class="menu-item menu-top">
+            <div>Arnaud</div>
+            <span>View profile</span>
+          </a>
+          <a href="dashboard/"  class="menu-item">
+            <div><i class="material-icons">dashboard</i></div>
+            <div>Dashboard</div>
+          </a>
+          <a href="books/"  class="menu-item">
+            <div><i class="material-icons">book</i></div>
+            <div>Books</div>
+          </a>
+          <a href="history/"  class="menu-item">
+            <div><i class="material-icons">history</i></div>
+            <div>History</div>
+          </a>
+          <a href="transactions/"  class="menu-item">
+            <div><i class="material-icons">payment</i></div>
+            <div>Transactions</div>
+          </a>
+          <a href="ratings/"  class="menu-item">
+            <div><i class="material-icons">star_half</i></div>
+            <div>Ratings</div>
+          </a>
+          <a href="search/"  class="menu-item">
+            <div><i class="material-icons">search</i></div>
+            <div>Search</div>
+          </a>
+        </div>
+        <div class="bottom">
+          <a id="btn-new-account-link" href="php/signout.php">Sign out</a>
         </div>
       </form>
     </div>
     
     <!-- HERO SLIDER -->
     <div class="header-slider">
-      <a href="#about" class="btn-floating btn-large waves-effect "><i class="material-icons">keyboard_arrow_down</i></a>
+      <a href="#about" class="btn-floating btn-large waves-effect"><i class="material-icons">keyboard_arrow_down</i></a>
       <div class="owl-carousel">
         <div class="item slide1">
           <div class="slide-text z-depth-1">
@@ -242,7 +296,8 @@
   <script type="text/javascript" src="js/jquery.validate.min.js"></script>
   <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
   <script type="text/javascript" src="plugins/owl.carousel/owl.carousel.min.js"></script>
-<!--  <script type="text/javascript" src="js/wow.min.js"></script>-->
+  <script type="text/javascript" src="js/wow.min.js"></script>
   <script type="text/javascript" src="js/parallax.min.js"></script>
-  <script type="text/javascript" src="js/init.js"></script>
+  <script type="text/javascript" src="js/base-init.js"></script>
+  <script type="text/javascript" src="js/home-init.js"></script>
 </html>

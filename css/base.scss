@@ -32,6 +32,14 @@ section {
 }
  
 
+.toast {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 
 .noselect {
   -webkit-touch-callout: none;
@@ -60,4 +68,8 @@ section {
 .error {
   border-bottom: 1px solid #ff0000 !important;
   box-shadow: 0 1px 0 0 #ff0000 !important;
+}
+
+.hidden {
+  display: none!important;
 }
