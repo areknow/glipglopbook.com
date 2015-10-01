@@ -31,7 +31,9 @@ section {
   display: none;
 }
  
-
+#toast-container {
+  z-index: inherit !important;
+}
 .toast {
   -webkit-touch-callout: none;
   -webkit-user-select: none;

@@ -105,7 +105,7 @@ html {
     right: 5px;
     top: 55px;
     width: 230px;
-    z-index: 999;
+    z-index: 10001;
     border-radius: 5px;
     display: none;
     background: #757575;
@@ -273,6 +273,7 @@ html {
     padding: 0;
     .collapse-header {
       position: relative;
+      display: block;
       i {
         position: absolute;
         right: 30px;

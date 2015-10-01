@@ -220,7 +220,7 @@ else {
               <i class="material-icons prefix">live_help</i>Read the FAQ</a>
             <a href="#!" class="waves-effect waves-light">
               <i class="material-icons prefix">school</i>Terms of Service</a>
-            <a href="https://github.com/arnaudcrowther/glipglopbook.com" class="waves-effect waves-light">
+            <a target="_blank" href="https://github.com/arnaudcrowther/glipglopbook.com" class="waves-effect waves-light">
               <i class="fab fab-github"></i>GitHub Documentation</a>
           </div>
         </div>
