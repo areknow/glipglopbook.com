@@ -1,21 +1,21 @@
-
-
+body {
+//  background: #e6e6e6;
+  height: 100%;
+}
 .profile {
-  padding: 100px 0 20px 0;
+  padding: 100px 0 0 0 !important;
   h1 {
     padding-top: 80px;
+    margin-bottom: 0;
   }
   .sheet {
-    min-height: 800px;
-    background: #e6e6e6;
+    min-height: 1000px;
+    background: #eeeeee;
     width: 90%;
     margin: auto;
     border-radius: 2px;
     .inner {
       padding: 50px;
-    }
-    .sheet-button:hover {
-      background: red;
     }
     .sheet-button {
       position: fixed;
@@ -24,11 +24,15 @@
       bottom: 40px;
       -webkit-mask:none;
     }
+    .btn-floating.btn-large:active {
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.16), 0 1px 7px 0 rgba(0, 0, 0, 0.12);
+    }
   }
 }
 
+
 .bg {
-  height: 500px;
+  height: 100%;
   width: 100%;
   position: fixed;
   top: 0;

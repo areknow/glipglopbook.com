@@ -274,6 +274,7 @@ html {
     .collapse-header {
       position: relative;
       display: block;
+      transition: all .3s ease;
       i {
         position: absolute;
         right: 30px;
