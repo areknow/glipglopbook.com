@@ -21,6 +21,9 @@ Glip Glop takes the idea of an almost perfect trading scenario and applies it to
 ### Glip Glop Currency
 The currency that Glip Glop uses is simply refered to as "points." The point to USD conversion is 1 point to $0.01 USD. These points can be purchased from the Glip Glop website or from other users. Users can set their own point-to-USD conversion rate. These transactions will be securely processed using PayPal.
 
+### Searching for books
+You can search for books by ISBN, author, or book name. The results will show the asking price, the condition of book, title, and seller name.
+
 ### Trade Sequence Breakdown
 The following is the breakdown of steps that a trade consists of:
 
@@ -45,7 +48,7 @@ Users can created accounts with Glip Gop by supplying three pieces of informatio
 - A desired password
 
 ### Profiles
-Users can set up their profiles with information about themselves that will enhance their trading experience. 
+Users can set up their profiles with information about themselves that will enhance their trading experience. This includes book preferences, college campus base, etc.
 
 ### College Campus Option
 Users can opt to select a college campus that they are nearby or attend. This allows traders to set up local trades and save money on shipping fees.

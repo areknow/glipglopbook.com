@@ -160,18 +160,19 @@ else {
         <div class="nubbin no-select"></div>
         <div id="about-tab1" class="about-tab active-tab">
           <h2>Search for what you need</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p>Search for What You Need
+With Glip Glop, you can search book listings from all over the world to find the book you want, in the condition you want, without spending a dime on it! List books for free and send them to other users to build up points that you can use towards the book of your dreams... or for that textbook that is “required” for your course next semester.
+Search books of any category, edition, or publication date; you never know what someone might want to trade!</p>
         </div>
         <div id="about-tab2" class="about-tab">
           <h2>Meet up with classmates and colleagues</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p>Meet Up With Classmates and Colleagues
+Glip Glop makes finding that expensive textbook easy by allowing you to choose a College or University to set as your base. Meet up with other students on campus that just took the class, or ones that just dropped the class, to trade without spending money on shipping. Schedule a meeting place and time to and avoid trips to the post office!</p>
         </div>
         <div id="about-tab3" class="about-tab">
           <h2>Exchange, sell, ship and receive textbooks</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p>Exchange, Sell, Ship, and Receive Books
+Set a price you are looking to get for your book, list it, and review offers from other traders. With Glip Glop, you have the reassurance of sending books to strangers while having the flexibility to set your own asking price. No more ten dollar trade-ins for a hundred dollar book! Get the price you deserve, from the convenience of your home.</p>
         </div>
       </div>
     </section>
@@ -272,7 +273,7 @@ else {
       <div class="row">
         <div class="col l6 m6 s12">
           <h3>&nbsp;<img src="res/logo/white.png"></h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.</p>
+          <p>Glip Glop is an Oakland University Project created by Arnaud Crowther, Amanda LaBelle, Alex Osbourn, and Eric Maul. This website is for testing purposes only; no real transactions are made.</p>
         </div>
         <div class="col l3 m3 s12">
           <h3>Helpful links</h3>
