@@ -68,6 +68,85 @@ body {
 
 
 
+
+
+
+
+
+.books {
+  .book-cont {
+    padding: 50px;
+    
+    .book-wrapper {
+      position: relative;
+      display: inline-block;
+      margin: 10px;
+      margin-bottom: 50px;
+      transition: all .2s ease;
+      .book {
+        height: 190px;
+        width: 150px;
+        background: #ffffff;
+        background-image: url(../res/books/book-default.png);
+        background-size: cover;
+        transition: all .2s ease;
+        cursor: pointer;
+        position: relative;
+        .bottom {
+          height: 50px;
+          width: 100%;
+          position: absolute;
+          bottom: 0;
+        }
+        &:hover {
+//          box-shadow: 0 4px 12px 0 rgba(0,0,0,0.4);
+        }
+      }
+      .closer {
+        display: none;
+        position: absolute;
+        cursor: pointer;
+        border-radius: 30px;
+        font-size: 12px;
+        padding: 4px;
+        background: #000000;
+        opacity: .6;
+        right: 5px;
+        bottom: 5px;
+        color: #fff;
+        text-align: center;
+        transition: all .2s ease;
+//        pointer-events: none;
+      }
+    }
+    .book-wrapper:hover .closer {
+      display: block;
+      transition: all .2s ease;
+    }
+  }
+  #modal-add-books {
+    .lbl-isbn-error {
+      font-size:11.6px;
+      color: #F44336;
+      opacity: 1;
+      position: absolute;
+      top: 48px;
+      display:none;
+    }
+    #btn-get-book {
+      cursor: pointer;
+      margin-top: 20px;
+      position: absolute;
+      right: 10px;
+      top: -10px;
+      bottom: 0;
+    }
+  }
+}
+
+
+
+
 //@media only screen and (min-width : 601px) and (max-width : 992px) {
 //  #toast-container {
 //    min-width: 8%!important;
