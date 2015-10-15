@@ -225,4 +225,9 @@ function is_404($url) {
   <script type="text/javascript" src="../js/parallax.min.js"></script>
   <script type="text/javascript" src="../js/base-init.js"></script>
   <script type="text/javascript" src="../js/profile-init.js"></script>
+  <script>
+    $(function() {
+      $('.tooltip').tooltipster();
+    });
+  </script>
 </html>

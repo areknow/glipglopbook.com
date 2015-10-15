@@ -1,6 +1,6 @@
 $(function() {
   
-  $('.tooltip').tooltipster();
+  
   
   //profile form
   $("#btn-profile-save").click(function(){
