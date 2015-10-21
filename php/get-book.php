@@ -11,12 +11,14 @@ while($bookrow = mysql_fetch_array($bookresults)) {
   $author = $bookrow['author'];
   $publisher = $bookrow['publisher'];
   $isbn = $bookrow['isbn'];
+  $img = $bookrow['img'];
   
   echo json_encode(array(
     "title" => $title, 
     "author" => $author, 
     "publisher" => $publisher,
-    "isbn" => $isbn
+    "isbn" => $isbn,
+    "img" => $img
   ));
 }
 

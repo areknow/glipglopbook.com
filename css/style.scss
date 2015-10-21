@@ -204,13 +204,37 @@ html {
       width: auto;
       padding: 0;
       .menu-top {
-        div {
-          font-weight: 700;
-          display: block!important;
+        overflow: hidden;
+        .avatar {
+          display: inline-block;
+          height: 40px;
+          width: 40px;
+//          background: red;
+          position: relative;
+          i {
+            position: absolute;
+            font-size: 40px;
+            left: -2px;
+          }
         }
-        span {
-          font-size: 10px;
+        .profile-name {
+          vertical-align: top;
+          margin-left: 4px;
+          .name {
+            display: block;
+            font-weight: 700;
+            font-size: 15px;
+            max-width: 100px;
+            white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+          }
+          .link {
+            display: block;
+            font-size: 10px;
+          }
         }
+          
       }
       .menu-item {
         padding: 10px;

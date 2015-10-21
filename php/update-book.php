@@ -10,7 +10,7 @@ $isbn = $_POST['isbn'];
 
 mysql_query("UPDATE books SET 
 `title` = '$title',
-`author` = '$title',
+`author` = '$author',
 `publisher` = '$pub',
 `isbn` = '$isbn'
 WHERE id = $id");

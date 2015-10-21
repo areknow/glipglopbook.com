@@ -74,8 +74,11 @@ else {
       <form class="drop-down-login drop-down-admin z-depth-2">
         <div class="top logged-in-menu">
           <a href="../profile/" class="menu-item menu-top">
-            <div><?php echo $first; ?></div>
-            <span>View profile</span>
+            <div class="avatar"><i class="material-icons avatar">account_circle</i></div>
+            <div class="profile-name">
+              <div class="name"><?php echo $first; ?></div>
+              <div class="link">View profile</div>
+            </div>
           </a>
           <a href="../dashboard/"  class="menu-item">
             <div><i class="material-icons">dashboard</i></div>
@@ -109,7 +112,7 @@ else {
     </div>
     
     <section class="profile">
-      <div class="sheet z-depth-2">
+      <div class="sheet z-depth-1">
         <h1>Profile</h1>
         <form id="frm-profile" class="inner">
           <div class="row">

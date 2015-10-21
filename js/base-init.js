@@ -22,6 +22,15 @@ new WOW().init();
     $(this).toggleClass("isDown");
     return false;
   });
+  //enter key search
+  $('#search-input').keypress(function (e) {
+    var key = e.which;
+      if(key == 13) {
+      var query = $('#search-input').val();  
+      window.location = "../search/?q="+query;
+    }
+  });
+  
   
   //account drop down
   $("#btn-account").click(function(event) {

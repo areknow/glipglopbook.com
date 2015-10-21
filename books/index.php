@@ -2,31 +2,17 @@
 session_start();
 if ($_SESSION['logged'] == true) {
   include '../php/con.php';
+  include '../php/functions.php';
   $logged = true;
   $userid = $_SESSION['id'];
   $bookresults = mysql_query("SELECT * FROM books WHERE owner = $userid");
+  $result = mysql_query("SELECT * FROM users WHERE id = '$userid'");
+  $row = mysql_fetch_array($result);
+  $first = $row['first'];
 }
 else {
   header('Location: ../');
   exit;
-}
-function is_404($url) {
-    $handle = curl_init($url);
-    curl_setopt($handle,  CURLOPT_RETURNTRANSFER, TRUE);
-
-    /* Get the HTML or whatever is linked in $url. */
-    $response = curl_exec($handle);
-
-    /* Check for 404 (file not found). */
-    $httpCode = curl_getinfo($handle, CURLINFO_HTTP_CODE);
-    curl_close($handle);
-
-    /* If the document has loaded successfully without any redirection or error */
-    if ($httpCode >= 200 && $httpCode < 300) {
-        return false;
-    } else {
-        return true;
-    }
 }
 ?>
 <!doctype html>
@@ -40,8 +26,6 @@ function is_404($url) {
     <link rel="stylesheet" href="../plugins/owl.carousel/assets/owl.carousel.css" type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href='../plugins/black-tie/css/black-tie.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="../plugins/tooltip/css/tooltipster.css" type="text/css">
-<!--    <link rel="stylesheet" href="../plugins/tooltip/css/themes/tooltipster-noir.css" type="text/css">-->
     <link rel="stylesheet" href="../css/animate.css" type="text/css">
     <link rel="stylesheet" href="../css/base.css" type="text/css">
     <link rel="stylesheet" href="../css/style.css" type="text/css">
@@ -87,8 +71,11 @@ function is_404($url) {
       <form class="drop-down-login drop-down-admin z-depth-2">
         <div class="top logged-in-menu">
           <a href="../profile/" class="menu-item menu-top">
-            <div>Arnaud</div>
-            <span>View profile</span>
+            <div class="avatar"><i class="material-icons avatar">account_circle</i></div>
+            <div class="profile-name">
+              <div class="name"><?php echo $first; ?></div>
+              <div class="link">View profile</div>
+            </div>
           </a>
           <a href="../dashboard/"  class="menu-item">
             <div><i class="material-icons">dashboard</i></div>
@@ -122,7 +109,7 @@ function is_404($url) {
     </div>
     
     <section class="profile books">
-      <div class="sheet z-depth-2">
+      <div class="sheet z-depth-1">
         <h1>Books</h1>
         <div class="row">
           <div class="book-cont">
@@ -136,8 +123,8 @@ function is_404($url) {
               if (is_404($coverurl)) {
                 $style = 'style="background-image: url('.$coverurl.');"';
               } else { $style = ""; }
-              echo '<div class="book-wrapper">';
-              echo '<div class="book tooltip z-depth-1" title="'.$title.'" book-id='.$bookid.' onclick="editBookModal('.$bookid.')" '.$style.'></div>';
+              echo '<div id="'.$bookid.'" class="book-wrapper">';
+              echo '<div class="book tooltipped z-depth-1" data-tooltip="'.$title.'" data-position="top" data-delay="0" book-id='.$bookid.' onclick="editBookModal('.$bookid.')" '.$style.'></div>';
               echo '<i book-id='.$bookid.' class="material-icons closer">close</i>';
               echo '</div>';
             }
@@ -150,69 +137,93 @@ function is_404($url) {
       <!-- add book modal -->
       <div id="modal-add-books" class="modal modal-fixed-footer">
         <div class="modal-content">
-          <h4>Add a new book</h4>
           <div class="row">
-            <div class="input-field col s12">
-              <input value="" id="inpt-isbn" type="text" class="validate">
-              <label id="lbl-isbn" for="inpt-isbn" >Search by ISBN</label>
-              <i id="btn-get-book" class="material-icons">search</i>
-              <div class="lbl-isbn-error">no matches</div>
+            <div class="top row">
+              <div class="input-field col s12">
+                <input value="" id="inpt-isbn" type="text" class="">
+                <label id="lbl-isbn" for="inpt-isbn" >Search by ISBN</label>
+                <i id="btn-get-book" class="material-icons">search</i>
+                <div class="lbl-isbn-error">no matches</div>
+              </div>
             </div>
-            <br><br><br><br><br>
-            <div class="input-field col s6">
-              <input id="inpt-book-title" type="text">
-              <label for="inpt-book-title">Title</label>
-            </div>
-            <div class="input-field col s6">
-              <input value="" id="inpt-book-author" type="text">
-              <label for="inpt-book-author">Author</label>
-            </div>
-            <div class="input-field col s6">
-              <input value="" id="inpt-book-pub" type="text">
-              <label for="inpt-book-pub">Publisher</label>
-            </div>
-            <div class="input-field col s6">
-              <input value="" id="inpt-book-isbn" type="text">
-              <label for="inpt-book-isbn">ISBN</label>
-            </div>
-            <input type="hidden" value="<?php echo $userid ?>" id="inpt-book-owner">
+              <div class="inputs col s6">
+                <div class="input-field col s12">
+                  <input id="inpt-book-title" type="text">
+                  <label for="inpt-book-title">Title</label>
+                </div>
+                <div class="input-field col s12">
+                  <input value="" id="inpt-book-author" type="text">
+                  <label for="inpt-book-author">Author</label>
+                </div>
+                <div class="input-field col s12">
+                  <input value="" id="inpt-book-pub" type="text">
+                  <label for="inpt-book-pub">Publisher</label>
+                </div>
+                <div class="input-field col s12">
+                  <input value="" id="inpt-book-isbn" type="text">
+                  <label for="inpt-book-isbn">ISBN</label>
+                </div>
+              </div>
+              <div class="col s6">
+                <div class="preview"></div>
+              </div>
+              <input type="hidden" value="<?php echo $userid ?>" id="inpt-book-owner">
           </div>
         </div>
         <div class="modal-footer">
           <div id="btn-modal-book-save" class="modal-action waves-effect waves-green btn-flat">Save</div>
-          <div id="btn-modal-book-cancel" class="modal-action modal-close waves-effect waves-red btn-flat">Cancel</div>
+          <div id="btn-modal-book-cancel" class="modal-action modal-close waves-effect btn-flat">Cancel</div>
         </div>
       </div>
       
       <!-- edit book modal -->
       <div id="modal-modify-books" class="modal modal-fixed-footer">
         <div class="modal-content">
-          <h4>Edit book information</h4>
+          <h4 class="modal-header">Edit book information</h4>
           <br>
           <div class="row">
-            <div class="input-field col s6">
-              <input class="active" value=" " id="inpt-mod-book-title" type="text">
-              <label for="inpt-mod-book-title">Title</label>
+            <div class="col s6">
+              <div class="input-field col s12">
+                <input class="active" value=" " id="inpt-mod-book-title" type="text">
+                <label for="inpt-mod-book-title">Title</label>
+              </div>
+              <div class="input-field col s12">
+                <input class="active" value=" " id="inpt-mod-book-author" type="text">
+                <label for="inpt-mod-book-author">Author</label>
+              </div>
+              <div class="input-field col s12">
+                <input class="active" value=" " id="inpt-mod-book-pub" type="text">
+                <label for="inpt-mod-book-pub">Publisher</label>
+              </div>
+              <div class="input-field col s12">
+                <input class="active" value=" " id="inpt-mod-book-isbn" type="text">
+                <label for="inpt-mod-book-isbn">ISBN</label>
+              </div>
             </div>
-            <div class="input-field col s6">
-              <input class="active" value=" " id="inpt-mod-book-author" type="text">
-              <label for="inpt-mod-book-author">Author</label>
-            </div>
-            <div class="input-field col s6">
-              <input class="active" value=" " id="inpt-mod-book-pub" type="text">
-              <label for="inpt-mod-book-pub">Publisher</label>
-            </div>
-            <div class="input-field col s6">
-              <input class="active" value=" " id="inpt-mod-book-isbn" type="text">
-              <label for="inpt-mod-book-isbn">ISBN</label>
+            <div class="col s6">
+              <div class="preview"></div>
             </div>
           </div>
         </div>
         <div class="modal-footer">
+          <div id="btn-modal-modify-book-delete" class="no-float modal-action modal-close waves-effect waves-red btn-flat">Delete</div>
           <div id="btn-modal-modify-book-save" class="modal-action waves-effect waves-green btn-flat">Save</div>
-          <div id="btn-modal-modify-book-cancel" class="modal-action modal-close waves-effect waves-red btn-flat">Cancel</div>
+          <div id="btn-modal-modify-book-cancel" class="modal-action modal-close waves-effect btn-flat">Cancel</div>
+          
         </div>
       </div>
+      
+<!--
+      <div id="warning-modal" class="modal">
+        <div class="modal-content">
+          <h4>Delete book-name</h4>
+          <p>Are you sure you want to permanently delete this book from your library? This is not reversible.</p>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+      </div>
+-->
     </section>
   </body>
   <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
@@ -221,13 +232,7 @@ function is_404($url) {
   <script type="text/javascript" src="../materialize/js/materialize.min.js"></script>
   <script type="text/javascript" src="../plugins/owl.carousel/owl.carousel.min.js"></script>
   <script type="text/javascript" src="../js/wow.min.js"></script>
-  <script type="text/javascript" src="../plugins/tooltip/js/jquery.tooltipster.min.js"></script>
   <script type="text/javascript" src="../js/parallax.min.js"></script>
   <script type="text/javascript" src="../js/base-init.js"></script>
-  <script type="text/javascript" src="../js/profile-init.js"></script>
-  <script>
-    $(function() {
-      $('.tooltip').tooltipster();
-    });
-  </script>
+  <script type="text/javascript" src="../js/book-init.js"></script>
 </html>

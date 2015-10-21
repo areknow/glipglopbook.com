@@ -1,7 +1,14 @@
 <?php
 session_start();
 if ($_SESSION['logged'] == true) {
+  include '../php/con.php';
+  $userid = $_SESSION['id'];
   $logged = true;
+  $result = mysql_query("SELECT * FROM users WHERE id = '$userid'");
+  $row = mysql_fetch_array($result);
+  $bookresults = mysql_query("SELECT * FROM books WHERE owner = $userid");
+  $booknum = mysql_num_rows($bookresults);
+  $first = $row['first'];
 }
 else {
   header('Location: ../');
@@ -64,8 +71,11 @@ else {
       <form class="drop-down-login drop-down-admin z-depth-2">
         <div class="top logged-in-menu">
           <a href="../profile/" class="menu-item menu-top">
-            <div>Arnaud</div>
-            <span>View profile</span>
+            <div class="avatar"><i class="material-icons avatar">account_circle</i></div>
+            <div class="profile-name">
+              <div class="name"><?php echo $first; ?></div>
+              <div class="link">View profile</div>
+            </div>
           </a>
           <a href="../dashboard/"  class="menu-item">
             <div><i class="material-icons">dashboard</i></div>
@@ -98,9 +108,32 @@ else {
       </form>
     </div>
     
-    <section class="profile">
-      <div class="sheet z-depth-2">
+    <section class="profile dashboard">
+      <div class="sheet z-depth-1">
         <h1>Dashboard</h1>
+        <div class="row inner">
+          <div class="col s12 m4">
+            <a href="../books/" class="widget shade1 z-depth-1">
+              <div class="number"><?php echo $booknum; ?></div>
+              <div class="desc">Books</div>
+              <i class="material-icons">book</i>
+            </a>
+          </div>
+          <div class="col s12 m4">
+            <a href="../transactions/" class="widget shade2 z-depth-1">
+              <div class="number">0</div>
+              <div class="desc">Transactions</div>
+              <i class="material-icons">payment</i>
+            </a>
+          </div>
+          <div class="col s12 m4">
+            <a href="../ratings/" class="widget shade3 z-depth-1">
+              <div class="number">0</div>
+              <div class="desc">Ratings</div>
+              <i class="material-icons">star_half</i>
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   </body>

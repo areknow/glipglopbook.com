@@ -1,7 +1,12 @@
 <?php
 session_start();
 if ($_SESSION['logged'] == true) {
+  include 'php/con.php';
+  $userid = $_SESSION['id'];
   $logged = true;
+  $result = mysql_query("SELECT * FROM users WHERE id = '$userid'");
+  $row = mysql_fetch_array($result);
+  $first = $row['first'];
   $hidden = "hidden";
 }
 else {
@@ -56,9 +61,11 @@ else {
         <div class="block glip"><img src="res/logo/white.png"></div>
       </div>
       <div class="menu">
+<!--
         <div id="btn-search" class="block"><i class="material-icons">search</i></div>
         <div id="search-cont" class="searchbar"><input id="search-input" type="text"></div>
         <a href="." class="block"><i class="material-icons">home</i></a>
+-->
         <div id="btn-account" class="block"><i class="material-icons">account_circle</i></div>
       </div>
       <form class="drop-down-login z-depth-2 <?php echo $hidden;?>">
@@ -82,8 +89,11 @@ else {
       <form class="drop-down-login drop-down-admin z-depth-2 <?php echo $adminhidden;?>">
         <div class="top logged-in-menu">
           <a href="profile/" class="menu-item menu-top">
-            <div>Arnaud</div>
-            <span>View profile</span>
+            <div class="avatar"><i class="material-icons avatar">account_circle</i></div>
+            <div class="profile-name">
+              <div class="name"><?php echo $first; ?></div>
+              <div class="link">View profile</div>
+            </div>
           </a>
           <a href="dashboard/"  class="menu-item">
             <div><i class="material-icons">dashboard</i></div>
