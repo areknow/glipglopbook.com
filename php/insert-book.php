@@ -18,3 +18,5 @@ $sql="INSERT INTO `books`
 if (!mysql_query($sql,$db)) {
   die('Error: ' . mysql_error());
 }
+
+echo $sql;

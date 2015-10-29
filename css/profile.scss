@@ -142,7 +142,7 @@ body {
         width: 185px;
         background: #ffffff;
         background-image: url(../res/books/book-default.png);
-        background-size: cover;
+        background-size: contain;
         transition: all .2s ease;
         cursor: pointer;
         position: relative;
@@ -204,6 +204,18 @@ body {
     .modal-header {
       margin-top: 20px;
       margin-bottom: 30px;
+      font-size: 26px;
+    }
+  }
+  #modal-warning {
+    h4 {
+      font-size: 26px;
+      margin-top: 10px;
+    }
+    h5 {
+      color: #838383;
+      font-size: 18px;
+      margin: 20px 0;
     }
   }
   .preview {

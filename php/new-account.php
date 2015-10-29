@@ -26,11 +26,6 @@ if(isset($_POST['new-account-submit'])) {
     die('Error: ' . mysql_error());
   }
   
-  //start session variables
-//  session_start();
-//  $_SESSION['id'] = $row['id'];
-//  $_SESSION['logged'] = TRUE;
-  
   //mail verification link
   $to      = $email;
   $subject = 'GlipGlop | Verification';
@@ -41,7 +36,6 @@ Your account has been created, you can login with the following credentials afte
 
 --------------------------------------
 Email: '.$email.'
-Password: '.$pas.'
 --------------------------------------
 
 Please click this link to activate your account before logging in:

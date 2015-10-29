@@ -17,6 +17,14 @@ section {
   
 }   
 
+
+.truncate {
+  width: 80%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .green {
   background: #26a69a !important;
 }

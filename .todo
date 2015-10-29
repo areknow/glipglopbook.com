@@ -1,13 +1,14 @@
 TODO LIST
 
-- pace page load
 - wow anim scroll
 - dummy help, account pages
-- book things
 - money?
 - fix plugins (materialize)
-- add verification checks on all scripts
 - html email link <a>
-- if(logged){ hide login modal }
 - /password failsafe if navigated to
 - analytics
+
+
+
+- double email check
+- procedural calls (or sanitize)

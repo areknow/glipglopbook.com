@@ -5,7 +5,6 @@ if ($_SESSION['logged'] == true) {
   include '../php/functions.php';
   $logged = true;
   $userid = $_SESSION['id'];
-  $bookresults = mysql_query("SELECT * FROM books WHERE owner = $userid");
   $result = mysql_query("SELECT * FROM users WHERE id = '$userid'");
   $row = mysql_fetch_array($result);
   $first = $row['first'];
@@ -31,7 +30,7 @@ else {
     <link rel="stylesheet" href="../css/style.css" type="text/css">
     <link rel="stylesheet" href="../css/profile.css" type="text/css">
   </head>
-  <body>
+  <body user-id="<?php echo $userid; ?>">
     <div class="bg bg-books"></div>
     <div class="login-overlay"></div>
     
@@ -113,22 +112,7 @@ else {
         <h1>Books</h1>
         <div class="row">
           <div class="book-cont">
-            <div class="book z-depth-1"></div>
-            <?php 
-            while($bookrow = mysql_fetch_array($bookresults)) {
-              $bookid = $bookrow['id'];
-              $title = $bookrow['title'];
-              $isbn = $bookrow['isbn'];
-              $coverurl = "http://covers.openlibrary.org/b/isbn/$isbn-L.jpg";
-              if (is_404($coverurl)) {
-                $style = 'style="background-image: url('.$coverurl.');"';
-              } else { $style = ""; }
-              echo '<div id="'.$bookid.'" class="book-wrapper">';
-              echo '<div class="book tooltipped z-depth-1" data-tooltip="'.$title.'" data-position="top" data-delay="0" book-id='.$bookid.' onclick="editBookModal('.$bookid.')" '.$style.'></div>';
-              echo '<i book-id='.$bookid.' class="material-icons closer">close</i>';
-              echo '</div>';
-            }
-            ?>
+            <!-- dynamic book loading -->
           </div>
         </div>
         <a id="btn-book-add" class="noselect btn-floating btn-large waves-light green sheet-button"><i class="material-icons">add</i></a>
@@ -206,24 +190,23 @@ else {
           </div>
         </div>
         <div class="modal-footer">
-          <div id="btn-modal-modify-book-delete" class="no-float modal-action modal-close waves-effect waves-red btn-flat">Delete</div>
+          <div data-state="false" id="btn-modal-modify-book-delete" class="no-float modal-action modal-close waves-effect btn-flat">Delete</div>
           <div id="btn-modal-modify-book-save" class="modal-action waves-effect waves-green btn-flat">Save</div>
           <div id="btn-modal-modify-book-cancel" class="modal-action modal-close waves-effect btn-flat">Cancel</div>
           
         </div>
       </div>
-      
-<!--
-      <div id="warning-modal" class="modal">
+      <div id="modal-warning" class="modal">
         <div class="modal-content">
-          <h4>Delete book-name</h4>
-          <p>Are you sure you want to permanently delete this book from your library? This is not reversible.</p>
+          <h4>Delete Book</h4>
+          <h5></h5>
+          <p>Removing a book from your library is not reversible. Please make sure that you want to delete this book from the GlipGlop inventory before proceeding.</p>
         </div>
         <div class="modal-footer">
-          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+          <div id="modal-warning-delete" class="modal-action waves-effect waves-red btn-flat">Delete</div>
+          <div class="modal-action modal-close waves-effect btn-flat">Cancel</div>
         </div>
       </div>
--->
     </section>
   </body>
   <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
@@ -233,6 +216,7 @@ else {
   <script type="text/javascript" src="../plugins/owl.carousel/owl.carousel.min.js"></script>
   <script type="text/javascript" src="../js/wow.min.js"></script>
   <script type="text/javascript" src="../js/parallax.min.js"></script>
+  <script type="text/javascript" src="../js/pace.js"></script>
   <script type="text/javascript" src="../js/base-init.js"></script>
   <script type="text/javascript" src="../js/book-init.js"></script>
 </html>

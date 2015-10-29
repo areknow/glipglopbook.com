@@ -1,39 +1,18 @@
 $(function() {
   
-  
-  
-  // Icon Click Focus
+  // search button click focus on input
   $('.main-search i').click(function(){
     $('#inpt-search').focus();
   });
-
-
-  // On Search Submit and Get Results
-  function search() {
-    var query_value = $('#inpt-search').val();
-    if(query_value !== ''){
-      $.ajax({
-        type: "POST",
-        url: "../php/search-book.php",
-        data: { query: query_value },
-        cache: false,
-        success: function(html){
-          $("ul#results").html(html);
-        }
-      });
-    }return false;    
-  }
-
+  
+  // search input keyup hook
   $("input#inpt-search").keyup(function(e) {
-    // Set Timeout
     clearTimeout($.data(this, 'timer'));
-    // Set Search String
     var search_string = $(this).val();
-    // Do Search
     if (search_string == '') {
       $("ul#results").fadeOut();
       $('h4#results-text').fadeOut();
-    }else{
+    } else {
       $("ul#results").fadeIn();
       $('h4#results-text').fadeIn();
       $(this).data('timer', setTimeout(search, 100));
@@ -45,7 +24,6 @@ $(function() {
   url = getPathFromUrl(url);
   $('#inpt-search').val(url);
   search();
-  //if not blank...
   
   
 });//end doc ready
@@ -54,11 +32,28 @@ $(function() {
 
 
 
-
-function getPathFromUrl(url) {
-  return url.split("=")[1];
+// main search function passes string to php and gets results
+function search() {
+  var query_value = $('#inpt-search').val();
+  console.log("search string: "+query_value);
+  if(query_value !== ''){
+    $.ajax({
+      type: "POST",
+      url: "../php/search-book.php",
+      data: { query: query_value },
+      cache: false,
+      success: function(html){
+        $("ul#results").html(html);
+      }
+    });
+  }return false;    
 }
 
+
+
+
+
+// book click opens modal and gets book info from DB
 function openBookModal(bookid) {
   $.ajax( {
       type: "POST",
@@ -77,6 +72,13 @@ function openBookModal(bookid) {
       }
     });
   $('#modal-book').openModal();
-//  $('#btn-modal-modify-book-save').attr('book-id',bookid);
-//  $('#btn-modal-modify-book-delete').attr('book-id',bookid);
+}
+
+
+
+
+
+// get url path for search query from any page
+function getPathFromUrl(url) {
+  return url.split("=")[1];
 }

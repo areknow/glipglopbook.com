@@ -37,6 +37,11 @@ $(function() {
     }
   });
   
+  $('#input-started-email').keyup(function() {
+    var val = $('#input-started-email').val();
+     console.log(val);                        
+  });
+  
   //home page modal
   $("#btn-modal-started-cancel").click(function(){  
     $("#input-started-firstname").val("");

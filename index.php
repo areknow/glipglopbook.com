@@ -309,6 +309,7 @@ Set a price you are looking to get for your book, list it, and review offers fro
   <script type="text/javascript" src="plugins/owl.carousel/owl.carousel.min.js"></script>
   <script type="text/javascript" src="js/wow.min.js"></script>
   <script type="text/javascript" src="js/parallax.min.js"></script>
+  <script type="text/javascript" src="js/pace.js"></script>
   <script type="text/javascript" src="js/base-init.js"></script>
   <script type="text/javascript" src="js/home-init.js"></script>
 </html>

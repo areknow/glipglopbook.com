@@ -1,67 +1,42 @@
 <?php
-class Amazon
-{
+class Amazon {
 
-	// public key
-	var $publicKey = "xxxxxxxxxxxxxx";
-	// private key
-	var $privateKey = "xxxxxxxxxxxxx";
-	// affiliate tag
-	var $affiliateTag='affiliateTag';
-		
-		/**
-		*Get a signed URL
-		*@param string $region used to define country
-		*@param array $param used to build url
-		*@return array $signature returns the signed string and its components
-  http://webtutsdepot.com/2009/10/13/how-to-get-a-books-thumbnail-imag/
-		*/
-	public function generateSignature($param)
-	{
-		// url basics
-		$signature['method']='GET';
-		$signature['host']='ecs.amazonaws.'.$param['region'];
-		$signature['uri']='/onca/xml';
+  public function getSignedUrl($params) {
 
-	    // necessary parameters
-		$param['Service'] = "AWSECommerceService";
-	    $param['AWSAccessKeyId'] = $this->publicKey;
-	    $param['Timestamp'] = gmdate("Y-m-d\TH:i:s\Z");
-	    $param['Version'] = '2009-10-01';
-		ksort($param);
-	    foreach ($param as $key=>$value)
-	    {
-	        $key = str_replace("%7E", "~", rawurlencode($key));
-	        $value = str_replace("%7E", "~", rawurlencode($value));
-	        $queryParamsUrl[] = $key."=".$value;
-	    }
-		// glue all the  "params=value"'s with an ampersand
-	    $signature['queryUrl']= implode("&", $queryParamsUrl);
-		
-	    // we'll use this string to make the signature
-		$StringToSign = $signature['method']."\n".$signature['host']."\n".$signature['uri']."\n".$signature['queryUrl'];
-	    // make signature
-	    $signature['string'] = str_replace("%7E", "~", 
-			rawurlencode(
-				base64_encode(
-					hash_hmac("sha256",$StringToSign,$this->privateKey,True
-					)
-				)
-			)
-		);
-	    return $signature;
-	}
-		/**
-		* Get signed url response
-		* @param string $region
-		* @param array $params
-		* @return string $signedUrl a query url with signature
-		*/
-	public function getSignedUrl($params)
-	{
-		$signature=$this->generateSignature($params);
+    if(!$params) return '';
 
-		return $signedUrl= "http://".$signature['host'].$signature['uri'].'?'.$signature['queryUrl'].'&Signature='.$signature['string'];
-	}
+    // build array with urlencoded $params
+    $encoded_values = array();
+    foreach($params as $key=>$val) {
+      $encoded_values[$key] = rawurlencode($key) . '=' . rawurlencode($val);
+    }
+
+    // add the account params and urlencode
+    if(! $encoded_values['AssociateTag'])
+      $encoded_values['AssociateTag']= 'AssociateTag='.rawurlencode("glipglop07-20");
+    if(! $encoded_values['AWSAccessKeyId'])
+      $encoded_values['AWSAccessKeyId'] = 'AWSAccessKeyId='.rawurlencode('AKIAIT6OZORDNISO3EQA');
+    if(! $encoded_values['Service'])
+      $encoded_values['Service'] = 'Service=AWSECommerceService';
+    if(! $encoded_values['Timestamp'])
+      $encoded_values['Timestamp'] = 'Timestamp='.rawurlencode(gmdate('Y-m-d\TH:i:s\Z'));
+    if(! $encoded_values['Version'])
+      $encoded_values['Version'] = 'Version=2011-08-01';
+
+    // sort
+    ksort($encoded_values);
+
+    // set the server, uri, and method
+    $server = 'webservices.amazon.com';
+    $uri = '/onca/xml';
+    $method = 'GET'; 
+
+    // implode the encoded values and generate hash signature
+    $query_string = str_replace("%7E", "~", implode('&',$encoded_values));   
+    $sig = base64_encode(hash_hmac('sha256', "{$method}\n{$server}\n{$uri}\n{$query_string}", 'I22KTaEDo+/fn78EwfcI1+iZGGuTeptdptPcgxin', true));
+
+    // return the URL string and add the signature as the last parameter
+    return "http://{$server}{$uri}?{$query_string}&Signature=" 
+      . str_replace("%7E", "~", rawurlencode($sig));
+  }
 }
-?>

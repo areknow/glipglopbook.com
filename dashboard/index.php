@@ -144,6 +144,7 @@ else {
   <script type="text/javascript" src="../plugins/owl.carousel/owl.carousel.min.js"></script>
   <script type="text/javascript" src="../js/wow.min.js"></script>
   <script type="text/javascript" src="../js/parallax.min.js"></script>
+  <script type="text/javascript" src="../js/pace.js"></script>
   <script type="text/javascript" src="../js/base-init.js"></script>
   <script type="text/javascript" src="../js/profile-init.js"></script>
 </html>
