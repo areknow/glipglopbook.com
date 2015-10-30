@@ -204,7 +204,7 @@ Set a price you are looking to get for your book, list it, and review offers fro
             <label for="input-started-lastname">Last Name</label>
           </div>
           <div class="input-field col s12">
-            <i class="material-icons prefix">swap_vertical_circle</i>
+            <i id="icon-email-check" class="material-icons prefix">swap_vertical_circle</i>
             <input onkeyup="checkForm()"  id="input-started-email" type="email">
             <label for="input-started-email">Email</label>
           </div>
@@ -224,8 +224,10 @@ Set a price you are looking to get for your book, list it, and review offers fro
           <p>Learn more about GlipGlop</p>
           <div class="col col s12">
             <div class="input-wrapper">
-              <i class="material-icons prefix">search</i>
-              <input type="text" placeholder="SEARCH FOR A BOOK">
+              <i class="material-icons search-prefix prefix">search</i>
+              <i class="material-icons search-close">close</i>
+              <input id="inpt-mini-search" type="text" placeholder="SEARCH FOR A BOOK">
+              <ul id="results" class="z-depth-1"></ul>
             </div>
             <a href="#!" class="waves-effect waves-light">
               <i class="material-icons prefix">live_help</i>Read the FAQ</a>

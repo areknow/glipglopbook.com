@@ -176,16 +176,3 @@ function moveNubbin(i,type) {
     });
   }
 }
-//validate get started mini form
-function checkForm() {
-  var firstname = $("#input-started-firstname").val();
-  var lastname = $("#input-started-lastname").val();
-  var email = $("#input-started-email").val();
-  var password = $("#input-started-password").val();
-  if(firstname!="" && lastname!="" && email!="" && password!="") {
-    $('#btn-modal1').prop("disabled", false);
-  }
-   else {
-     $('#btn-modal1').prop("disabled", true);
-   }
-}

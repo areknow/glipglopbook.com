@@ -28,22 +28,11 @@ $(function() {
   
   
   
-  //FORM ACTIONS (started,modal)//
-  
-  //enable enter key stroke for first form
-  $("#frm-started-mini").keypress(function (e) {
-    if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) {
-      $('#btn-modal1').click();
-    }
-  });
-  
-  $('#input-started-email').keyup(function() {
-    var val = $('#input-started-email').val();
-     console.log(val);                        
-  });
+
+
   
   //home page modal
-  $("#btn-modal-started-cancel").click(function(){  
+  $("#btn-modal-started-cancel").click(function(){
     $("#input-started-firstname").val("");
     $("#input-started-firstname").focusout();
     $("#input-started-lastname").val("");
@@ -52,13 +41,14 @@ $(function() {
     $("#input-started-email").focusout();
     $("#input-started-password").val("");
     $("#input-started-password").focusout();
-    $('#chk-started-modal-agree').attr('checked', false);
+    $("#chk-started-modal-agree").attr('checked', false);
     $("#input-modal-firstname").val("");
     $("#input-modal-lastname").val("");
     $("#input-modal-email").val("");
     $("#input-modal-password").val("");
-    $('#btn-modal1').prop("disabled", true);
+    $("#btn-modal1").prop("disabled", true);
   });
+  
   
   //open modal and pass variables to new account modal
   $("#btn-modal1").click(function(event){  
@@ -142,7 +132,7 @@ $(function() {
   });
   
   
-  //home contact form ajax post
+  //home form ajax post
   $("#btn-login").click(function(){
     var mydata = $("form.drop-down-login").serialize();
     $.ajax({
@@ -166,9 +156,30 @@ $(function() {
   
   
   
+  // search input keyup hook
+  $("#inpt-mini-search").keyup(function(e) {
+    clearTimeout($.data(this, 'timer'));
+    var search_string = $(this).val();
+    if (search_string == '') {
+      $("ul#results").fadeOut();
+      $('h4#results-text').fadeOut();
+      $(".search-close").fadeOut();
+    } else {
+      $(".search-close").fadeIn();
+      $("ul#results").fadeIn();
+      $('h4#results-text').fadeIn();
+      $(this).data('timer', setTimeout(search, 100));
+      $('#inpt-mini-search').addClass('mini-search-bg');
+    };
+  });
   
-  
-  
+  $(".search-close").click(function() {
+    $(this).fadeOut();
+    $("ul#results").fadeOut();
+    $("ul#results").empty();
+    $("#inpt-mini-search").val('');
+    $('#inpt-mini-search').removeClass('mini-search-bg');
+  });
   
 });//end doc ready
 
@@ -195,13 +206,68 @@ $(window).resize(function() {
 
 
 
+// main search function passes string to php and gets results
+function search() {
+  var query_value = $('#inpt-mini-search').val();
+  console.log("search string: "+query_value);
+  if(query_value !== ''){
+    $.ajax({
+      type: "POST",
+      url: "php/search-book.php",
+      data: { query: query_value },
+      cache: false,
+      success: function(html){
+        $("ul#results").html(html);
+      }
+    });
+  }return false;    
+}
 
 
 
 
 
+//validate get started mini form and check for existing email
+function checkForm() {
+  var firstname = $("#input-started-firstname").val();
+  var lastname = $("#input-started-lastname").val();
+  var email = $("#input-started-email").val();
+  var password = $("#input-started-password").val();
+  var fieldsAreFilled = false;
+  
+  if(firstname=="" || lastname=="" || email=="" || password=="")
+    fieldsAreFilled = false;
+  if (firstname!="" && lastname!="" && email!="" && password!="")
+    fieldsAreFilled = true;
+  
+  $.ajax( {
+    type: "POST",
+    url: "php/check-email.php",
+    cache: false,
+    dataType: 'json',
+    data: {email:email},
+    success: function(result) {
+      if(result.exists=="true") {
+        console.log(email+" exists");
+        $("label[for='input-started-email']").text('Email already exists');
+        $("label[for='input-started-email'], #icon-email-check").addClass('red-label');
+        $("#input-started-email").addClass('invalid');
+      } else {
+        console.log(email+" free");
+        $("label[for='input-started-email']").text('Email');
+        $("label[for='input-started-email'], #icon-email-check").removeClass('red-label');
+        $("#input-started-email").removeClass('invalid');
+      }
+      if(result.exists=="false" && fieldsAreFilled==true) {
+        $('#btn-modal1').prop("disabled", false);
+      } else {
+        $('#btn-modal1').prop("disabled", true);
+      }
+    }
+  });
+}
 
 
-
-
-
+function openBookModal(id) {
+  alert(id);
+}

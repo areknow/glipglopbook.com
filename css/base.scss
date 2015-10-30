@@ -18,11 +18,20 @@ section {
 }   
 
 
+.mini-search-bg {
+  background: rgba(255, 255, 255, 0.2) !important;
+}
+
+
 .truncate {
   width: 80%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.red-label {
+  color: #F44336 !important;
 }
 
 .green {
