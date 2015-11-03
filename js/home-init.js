@@ -12,7 +12,7 @@ $(function() {
   //parallax init for get started section background
   $('#started').parallax({
     speed: 0.2,
-    bleed: 30,
+    bleed: 40,
     naturalWidth: 1440,
     naturalHeight: 960,
     iosFix: true,
@@ -22,13 +22,6 @@ $(function() {
   
   
   
-  
-  
-  
-  
-  
-  
-
 
   
   //home page modal
@@ -96,7 +89,10 @@ $(function() {
   
   
   
-  
+  // home nav bar search click
+  $('#btn-home-nav-search').click(function(){
+    $("#inpt-mini-search").focus();
+  });
   
   
   
@@ -121,7 +117,6 @@ $(function() {
   
   
   
-  
   //home page slider hero init
   $('.owl-carousel').owlCarousel({
     loop:true,
@@ -140,13 +135,14 @@ $(function() {
         url: "php/login.php",
         data: mydata,
         success: function(response, textStatus, xhr) {
-          response==true && console.log('good');
+          console.log(response);
           if (response=="true") {
             $('.invalid').slideUp();
             location.href="dashboard";
           }
           else {
             $('.invalid').slideDown('fast');
+            $(".drop-down-login input").val('');
           }
         },
         error: function(xhr, textStatus, errorThrown) {}
@@ -154,6 +150,10 @@ $(function() {
     return false;
   });
   
+  // hide error on input click
+  $(".drop-down-login input").focusin(function() {
+    $('.invalid').slideUp();
+  });
   
   
   // search input keyup hook
@@ -164,6 +164,7 @@ $(function() {
       $("ul#results").fadeOut();
       $('h4#results-text').fadeOut();
       $(".search-close").fadeOut();
+      $('#inpt-mini-search').removeClass('mini-search-bg');
     } else {
       $(".search-close").fadeIn();
       $("ul#results").fadeIn();
@@ -226,7 +227,6 @@ function search() {
 
 
 
-
 //validate get started mini form and check for existing email
 function checkForm() {
   var firstname = $("#input-started-firstname").val();
@@ -240,34 +240,50 @@ function checkForm() {
   if (firstname!="" && lastname!="" && email!="" && password!="")
     fieldsAreFilled = true;
   
-  $.ajax( {
-    type: "POST",
-    url: "php/check-email.php",
-    cache: false,
-    dataType: 'json',
-    data: {email:email},
-    success: function(result) {
-      if(result.exists=="true") {
-        console.log(email+" exists");
-        $("label[for='input-started-email']").text('Email already exists');
-        $("label[for='input-started-email'], #icon-email-check").addClass('red-label');
-        $("#input-started-email").addClass('invalid');
-      } else {
-        console.log(email+" free");
-        $("label[for='input-started-email']").text('Email');
-        $("label[for='input-started-email'], #icon-email-check").removeClass('red-label');
-        $("#input-started-email").removeClass('invalid');
+  if(email!="" && !isValidEmailAddress(email)) {
+    $("label[for='input-started-email']").text('Email not valid');
+    $("label[for='input-started-email'], #icon-email-check").addClass('red-label');
+    $("#input-started-email").addClass('invalid');
+  } else {
+    $.ajax( {
+      type: "POST",
+      url: "php/check-email.php",
+      cache: false,
+      dataType: 'json',
+      data: {email:email},
+      success: function(result) {
+        console.log(result);
+        if(result.exists=="true") {
+          console.log(email+" exists");
+          $("label[for='input-started-email']").text('Email already exists');
+          $("label[for='input-started-email'], #icon-email-check").addClass('red-label');
+          $("#input-started-email").addClass('invalid');
+        } else {
+          console.log(email+" free");
+          $("label[for='input-started-email']").text('Email');
+          $("label[for='input-started-email'], #icon-email-check").removeClass('red-label');
+          $("#input-started-email").removeClass('invalid');
+        }
+        if(result.exists=="false" && fieldsAreFilled==true) {
+          $('#btn-modal1').prop("disabled", false);
+        } else {
+          $('#btn-modal1').prop("disabled", true);
+        }
       }
-      if(result.exists=="false" && fieldsAreFilled==true) {
-        $('#btn-modal1').prop("disabled", false);
-      } else {
-        $('#btn-modal1').prop("disabled", true);
-      }
-    }
-  });
+    });
+  }
+  
+
 }
 
 
 function openBookModal(id) {
   alert(id);
 }
+
+
+
+function isValidEmailAddress(emailAddress) {
+    var pattern = /^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
+    return pattern.test(emailAddress);
+};

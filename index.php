@@ -61,11 +61,9 @@ else {
         <div class="block glip"><img src="res/logo/white.png"></div>
       </div>
       <div class="menu">
-<!--
-        <div id="btn-search" class="block"><i class="material-icons">search</i></div>
-        <div id="search-cont" class="searchbar"><input id="search-input" type="text"></div>
-        <a href="." class="block"><i class="material-icons">home</i></a>
--->
+        <a href="#started" id="btn-home-nav-search" class="block"><i class="material-icons">search</i></a>
+<!--        <div id="search-cont" class="searchbar"><input id="search-input" type="text"></div>-->
+<!--        <a href="." class="block"><i class="material-icons">home</i></a>-->
         <div id="btn-account" class="block"><i class="material-icons">account_circle</i></div>
       </div>
       <form class="drop-down-login z-depth-2 <?php echo $hidden;?>">
@@ -200,12 +198,12 @@ Set a price you are looking to get for your book, list it, and review offers fro
           </div>
           <div class="input-field col s12">
             <i class="material-icons prefix">account_circle</i>
-            <input onkeyup="checkForm()"  id="input-started-lastname" type="text">
+            <input onkeyup="checkForm()" id="input-started-lastname" type="text">
             <label for="input-started-lastname">Last Name</label>
           </div>
           <div class="input-field col s12">
             <i id="icon-email-check" class="material-icons prefix">swap_vertical_circle</i>
-            <input onkeyup="checkForm()"  id="input-started-email" type="email">
+            <input onkeyup="checkForm()" id="input-started-email" type="email">
             <label for="input-started-email">Email</label>
           </div>
           <div class="input-field col s12">

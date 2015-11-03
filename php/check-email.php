@@ -1,10 +1,10 @@
 <?php
 
-// get post variable
-$email = mysql_real_escape_string($_POST['email']);
-
 // bind database
 include 'con.php';
+
+// get post variable
+$email = mysql_real_escape_string($_POST['email']);
 
 // build query
 $sql = mysql_query("SELECT * FROM users WHERE email='$email'");
