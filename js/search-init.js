@@ -67,6 +67,7 @@ function openBookModal(bookid) {
         $('#inpt-modal-book-title').val(result.title);
         $('#inpt-modal-book-author').val(result.author);
         $('#inpt-modal-book-pub').val(result.publisher);
+        $('#inpt-modal-book-price').val(result.price);
         $('#inpt-modal-book-isbn').val(result.isbn);
         $("#modal-book .preview").css('background-image','url('+result.img+')');
       }

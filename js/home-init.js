@@ -277,8 +277,27 @@ function checkForm() {
 }
 
 
-function openBookModal(id) {
-  alert(id);
+
+// book click opens modal and gets book info from DB
+function openBookModal(bookid) {
+  $.ajax( {
+      type: "POST",
+      url: "php/get-book.php",
+      data: {bookid:bookid},
+      cache: false,
+      dataType: 'json',
+      success: function(result){
+        console.log(result);
+        $('.modal-header').html(result.title);
+        $('#inpt-modal-book-title').val(result.title);
+        $('#inpt-modal-book-author').val(result.author);
+        $('#inpt-modal-book-pub').val(result.publisher);
+        $('#inpt-modal-book-price').val(result.price);
+        $('#inpt-modal-book-isbn').val(result.isbn);
+        $("#modal-book .preview").css('background-image','url('+result.img+')');
+      }
+    });
+  $('#modal-book').openModal();
 }
 
 

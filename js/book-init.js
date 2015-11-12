@@ -37,6 +37,7 @@ $(function() {
           var title = result.title[0];
           var author = result.author[0];
           var publisher = result.publisher[0];
+          var price = result.lownewprice[0];
           var coverUrl = result.img[0];
           $("label[for='inpt-book-title']").addClass('active');
           $("#inpt-book-title").val(title);
@@ -44,6 +45,8 @@ $(function() {
           $("#inpt-book-author").val(author);
           $("label[for='inpt-book-pub']").addClass('active');
           $("#inpt-book-pub").val(publisher);
+          $("label[for='inpt-book-price']").addClass('active');
+          $("#inpt-book-price").val(price);
           $("label[for='inpt-book-isbn']").addClass('active');
           $("#inpt-book-isbn").val(isbn2);
           $(".books .preview").css('background-image','url('+coverUrl+')');
@@ -70,6 +73,7 @@ $(function() {
     var title = $('#inpt-book-title').val();
     var author = $('#inpt-book-author').val();
     var pub = $('#inpt-book-pub').val();
+    var price = $('#inpt-book-price').val();
     var isbn = $('#inpt-book-isbn').val();
     var owner = $('#inpt-book-owner').val();
     var img = $(".books .preview").css('background-image');
@@ -83,13 +87,15 @@ $(function() {
       else {$('#inpt-book-author').removeClass('invalid');}
       if (!pub) {$('#inpt-book-pub').addClass('invalid');} 
       else {$('#inpt-book-pub').removeClass('invalid');}
+      if (!pub) {$('#inpt-book-price').addClass('invalid');} 
+      else {$('#inpt-book-price').removeClass('invalid');}
       if (!isbn) {$('#inpt-book-isbn').addClass('invalid');} 
       else {$('#inpt-book-isbn').removeClass('invalid');}
     } else {
       $.ajax( {
         type: "POST",
         url: "../php/insert-book.php",
-        data: {title:title,author:author,pub:pub,isbn:isbn,owner:owner,img:img},
+        data: {title:title,author:author,pub:pub,price:price,isbn:isbn,owner:owner,img:img},
         success: function(result) {
           console.log(result);
           $('#modal-add-books').closeModal();
@@ -108,11 +114,12 @@ $(function() {
     var title = $('#inpt-mod-book-title').val();
     var author = $('#inpt-mod-book-author').val();
     var pub = $('#inpt-mod-book-pub').val();
+    var price = $('#inpt-mod-book-price').val();
     var isbn = $('#inpt-mod-book-isbn').val();
     $.ajax( {
       type: "POST",
       url: "../php/update-book.php",
-      data: {bookid:id,title:title,author:author,pub:pub,isbn:isbn},
+      data: {bookid:id,title:title,author:author,pub:pub,price:price,isbn:isbn},
       success: function(result) {
         console.log(result);
         loadBooks(userid)
@@ -124,12 +131,15 @@ $(function() {
   
   
   
+  // edit book modal delete button
+  $("#btn-modal-modify-book-delete").click(function() {
+    var id = this.getAttribute('book-id');
+    openWarning(id);
+  });
 
   
-
-  
-  // delete button click
-  $("#btn-modal-modify-book-delete, #modal-warning-delete").click(function() {
+  // warning modal delete button click
+  $("#modal-warning-delete").click(function() {
     var id = this.getAttribute('book-id');
     $('#modal-warning').closeModal();
     deleteBook(id);
@@ -139,7 +149,6 @@ $(function() {
   
   
 
-  
   
   
 });//end doc ready
@@ -192,6 +201,7 @@ function editBookModal(bookid) {
         $('#inpt-mod-book-title').val(result.title);
         $('#inpt-mod-book-author').val(result.author);
         $('#inpt-mod-book-pub').val(result.publisher);
+        $('#inpt-mod-book-price').val(result.price);
         $('#inpt-mod-book-isbn').val(result.isbn);
         $("#modal-modify-books .preview").css('background-image','url('+result.img+')');
       }
@@ -236,16 +246,19 @@ function clearModal() {
   $('#inpt-book-author').val('');
   $('#inpt-book-pub').val('');
   $('#inpt-book-isbn').val('');
+  $('#inpt-book-price').val('');
   $('#inpt-isbn').removeClass('valid');
   $('#inpt-isbn').removeClass('invalid');
   $('#inpt-book-title').removeClass('invalid');
   $('#inpt-book-author').removeClass('invalid');
   $('#inpt-book-pub').removeClass('invalid');
+  $('#inpt-book-price').removeClass('invalid');
   $('#inpt-book-isbn').removeClass('invalid');
   $("label[for='inpt-isbn']").removeClass('active');
   $("label[for='inpt-book-title']").removeClass('active');
   $("label[for='inpt-book-author']").removeClass('active');
   $("label[for='inpt-book-pub']").removeClass('active');
+  $("label[for='inpt-book-price']").removeClass('active');
   $("label[for='inpt-book-isbn']").removeClass('active');
   $('.books .preview').css('background-image','');
   $('.lbl-isbn-error').hide();

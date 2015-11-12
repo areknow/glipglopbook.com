@@ -37,13 +37,17 @@ else {
   $title = $response->Items->Item->ItemAttributes->Title;
   $author = $response->Items->Item->ItemAttributes->Author;
   $publisher = $response->Items->Item->ItemAttributes->Publisher;
-  $price = $response->Items->Item->ItemAttributes->ListPrice->FormattedPrice;
+  $listprice = $response->Items->Item->ItemAttributes->ListPrice->FormattedPrice;
+  $lownewprice = $response->Items->Item->OfferSummary->LowestNewPrice->FormattedPrice;
+  $lowusedprice = $response->Items->Item->OfferSummary->LowestUsedPrice->FormattedPrice;
   // encode json array for return
   echo json_encode(array(
     "title" => $title, 
     "author" => $author, 
     "publisher" => $publisher, 
-    "price" => $price, 
+    "listprice" => $listprice, 
+    "lownewprice" => $lownewprice, 
+    "lowusedprice" => $lowusedprice, 
     "img" => $image,
     "query" => $queryUrl
   ));

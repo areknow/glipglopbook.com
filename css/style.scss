@@ -722,9 +722,12 @@ html {
           
           .result {
             border-bottom: 1px solid #c4c4c4;
-            padding: 10px 5px;
+            
             cursor: pointer;
             transition: all .2s ease;
+            div {
+              padding: 10px 5px;
+            }
             .img {
               display: none;
             }
@@ -838,6 +841,29 @@ html {
   }
 }
 
+
+
+
+#modal-book {
+  input {
+    margin-bottom: 5px;
+  }
+  .modal-header {
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+  .row {
+    padding: 0;
+  }
+  .preview {
+    height: 250px;
+    margin-top: 45px;
+    background-image: url(../res/books/book-default.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
 
 
 

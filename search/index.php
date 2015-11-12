@@ -143,6 +143,10 @@ else {
                 <input disabled class="active" value=" " id="inpt-modal-book-isbn" type="text">
                 <label for="inpt-modal-book-isbn">ISBN</label>
               </div>
+              <div class="input-field col s12">
+                <input disabled class="active" value=" " id="inpt-modal-book-price" type="text">
+                <label for="inpt-modal-book-price">Price</label>
+              </div>
             </div>
             <div class="col s6">
               <div class="preview"></div>
@@ -152,7 +156,6 @@ else {
         <div class="modal-footer">
           <div id="btn-modal-book-buy" class="modal-action waves-effect waves-green btn-flat">Buy</div>
           <div id="btn-modal-book-cancel" class="modal-action modal-close waves-effect btn-flat">Cancel</div>
-          
         </div>
       </div>
     </section>

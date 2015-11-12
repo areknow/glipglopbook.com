@@ -147,6 +147,10 @@ else {
                   <input value="" id="inpt-book-isbn" type="text">
                   <label for="inpt-book-isbn">ISBN</label>
                 </div>
+                <div class="input-field col s12">
+                  <input value="" id="inpt-book-price" type="text">
+                  <label for="inpt-book-price">Price</label>
+                </div>
               </div>
               <div class="col s6">
                 <div class="preview"></div>
@@ -182,6 +186,10 @@ else {
               <div class="input-field col s12">
                 <input class="active" value=" " id="inpt-mod-book-isbn" type="text">
                 <label for="inpt-mod-book-isbn">ISBN</label>
+              </div>
+              <div class="input-field col s12">
+                <input class="active" value=" " id="inpt-mod-book-price" type="text">
+                <label for="inpt-mod-book-price">Price</label>
               </div>
             </div>
             <div class="col s6">

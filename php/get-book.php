@@ -10,6 +10,7 @@ while($bookrow = mysql_fetch_array($bookresults)) {
   $title = $bookrow['title'];
   $author = $bookrow['author'];
   $publisher = $bookrow['publisher'];
+  $price = $bookrow['price'];
   $isbn = $bookrow['isbn'];
   $img = $bookrow['img'];
   
@@ -17,6 +18,7 @@ while($bookrow = mysql_fetch_array($bookresults)) {
     "title" => $title, 
     "author" => $author, 
     "publisher" => $publisher,
+    "price" => $price,
     "isbn" => $isbn,
     "img" => $img
   ));
