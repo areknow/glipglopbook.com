@@ -37,7 +37,10 @@ $(function() {
           var title = result.title[0];
           var author = result.author[0];
           var publisher = result.publisher[0];
-          var price = result.lownewprice[0];
+          var price = "N/A";
+          if (result.lownewprice) {
+            price = result.lownewprice[0];
+          }
           var coverUrl = result.img[0];
           $("label[for='inpt-book-title']").addClass('active');
           $("#inpt-book-title").val(title);
