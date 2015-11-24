@@ -2,8 +2,9 @@
 session_start();
 if ($_SESSION['logged'] == true) {
   include '../php/con.php';
-  $userid = $_SESSION['id'];
+  include '../php/functions.php';
   $logged = true;
+  $userid = $_SESSION['id'];
   $result = mysql_query("SELECT * FROM users WHERE id = '$userid'");
   $row = mysql_fetch_array($result);
   $first = $row['first'];
@@ -19,7 +20,7 @@ else {
     <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
     <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no'>
     <meta name='author' content='Arnaud Crowther, Alex Osbourne, Amanda Labelle, Eric Maul'>
-    <title>GlipGlop | Search</title>
+    <title>GlipGlop | Category</title>
     <link rel="stylesheet" href="../materialize/css/materialize.min.css" type="text/css">
     <link rel="stylesheet" href="../plugins/owl.carousel/assets/owl.carousel.css" type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -29,8 +30,8 @@ else {
     <link rel="stylesheet" href="../css/style.css" type="text/css">
     <link rel="stylesheet" href="../css/profile.css" type="text/css">
   </head>
-  <body>
-    <div class="bg bg-search"></div>
+  <body user-id="<?php echo $userid; ?>">
+    <div class="bg bg-books"></div>
     <div class="login-overlay"></div>
     
     <!-- SLIDE OUT -->
@@ -42,17 +43,17 @@ else {
           <i class="material-icons">arrow_drop_down</i>
         </div>
         <div class="collapse-menu">
-          <a href="../category/?=math">MATH</a>
-          <a href="../category/?=science">SCIENCE</a>
-          <a href="../category/?=history">HISTORY</a>
-          <a href="../category/?=language">LANGUAGE</a>
-          <a href="../category/?=fiction">FICTION</a>
-          <a href="../category/?=other" class="last">OTHER</a>
+          <a href=".?=math">MATH</a>
+          <a href=".?=science">SCIENCE</a>
+          <a href=".?=history">HISTORY</a>
+          <a href=".?=language">LANGUAGE</a>
+          <a href=".?=fiction">FICTION</a>
+          <a href=".?=other" class="last">OTHER</a>
         </div>
       </li>
-      <li><a href="../category/?=all">NEW ARRIVALS</a></li>
-      <li><a href="../category/?=all">BEST SELLERS</a></li>
-      <li><a href="../category/?=all">SEE ALL BOOK</a></li>
+      <li><a href=".?=all">NEW ARRIVALS</a></li>
+      <li><a href=".?=all">BEST SELLERS</a></li>
+      <li><a href=".?=all">SEE ALL BOOK</a></li>
     </ul>
     
     <!-- NAV BAR -->
@@ -108,22 +109,18 @@ else {
         </div>
       </form>
     </div>
-    <section class="profile search">
+    
+    <section class="profile category">
       <div class="sheet z-depth-1">
-        <h1>Search</h1>
+        <h1>All Books</h1>
         <div class="row">
-          <div class="col s12">
-            <div class="input-field col s12 main-search">
-              <input class="active" id="inpt-search" type="text">
-              <label for="inpt-search">Enter ISBN, Title, Author or Publisher</label>
-              <i class="material-icons ">search</i>
-            </div>
-            <div class="search-results">
-              <ul id="results"></ul>
-            </div>
+          <div class="book-cont">
+            <!-- dynamic book loading -->
+          </div>
         </div>
       </div>
-        
+      
+      <!-- pop up book modal -->
       <div id="modal-book" class="modal modal-fixed-footer">
         <div class="modal-content">
           <h4 class="modal-header">Title</h4>
@@ -165,7 +162,7 @@ else {
           <div id="btn-modal-book-cancel" class="modal-action modal-close waves-effect btn-flat">Cancel</div>
         </div>
       </div>
-        
+      
       <div id="modal-buy" class="modal modal-fixed-footer">
         <div class="modal-content">
           <h4 class="modal-header">Request to Purchase</h4>
@@ -202,6 +199,18 @@ else {
           <div id="btn-modal-buy-cancel" class="modal-action modal-close waves-effect btn-flat">Cancel</div>
         </div>
       </div>
+      
+      <div id="modal-warning" class="modal">
+        <div class="modal-content">
+          <h4>Delete Book</h4>
+          <h5></h5>
+          <p>Removing a book from your library is not reversible. Please make sure that you want to delete this book from the GlipGlop inventory before proceeding.</p>
+        </div>
+        <div class="modal-footer">
+          <div id="modal-warning-delete" class="modal-action waves-effect waves-red btn-flat">Delete</div>
+          <div class="modal-action modal-close waves-effect btn-flat">Cancel</div>
+        </div>
+      </div>
     </section>
   </body>
   <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
@@ -213,5 +222,5 @@ else {
   <script type="text/javascript" src="../js/parallax.min.js"></script>
   <script type="text/javascript" src="../js/pace.js"></script>
   <script type="text/javascript" src="../js/base-init.js"></script>
-  <script type="text/javascript" src="../js/search-init.js"></script>
+  <script type="text/javascript" src="../js/category-init.js"></script>
 </html>

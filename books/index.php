@@ -43,14 +43,17 @@ else {
           <i class="material-icons">arrow_drop_down</i>
         </div>
         <div class="collapse-menu">
-          <a href="#">MATH</a>
-          <a href="#">SCIENCE</a>
-          <a href="#" class="last">HISTORY</a>
+          <a href="../category/?=math">MATH</a>
+          <a href="../category/?=science">SCIENCE</a>
+          <a href="../category/?=history">HISTORY</a>
+          <a href="../category/?=language">LANGUAGE</a>
+          <a href="../category/?=fiction">FICTION</a>
+          <a href="../category/?=other" class="last">OTHER</a>
         </div>
       </li>
-      <li><a href="#!">NEW ARRIVALS</a></li>
-      <li><a href="#!">BEST SELLERS</a></li>
-      <li><a href="#!">SEE ALL BOOK</a></li>
+      <li><a href="../category/?=all">NEW ARRIVALS</a></li>
+      <li><a href="../category/?=all">BEST SELLERS</a></li>
+      <li><a href="../category/?=all">SEE ALL BOOK</a></li>
     </ul>
     
     <!-- NAV BAR -->
@@ -82,7 +85,7 @@ else {
           </a>
           <a href="../books/"  class="menu-item">
             <div><i class="material-icons">book</i></div>
-            <div>Books</div>
+            <div>My Books</div>
           </a>
           <a href="../history/"  class="menu-item">
             <div><i class="material-icons">history</i></div>
@@ -109,7 +112,7 @@ else {
     
     <section class="profile books">
       <div class="sheet z-depth-1">
-        <h1>Books</h1>
+        <h1>My Books</h1>
         <div class="row">
           <div class="book-cont">
             <!-- dynamic book loading -->
@@ -135,9 +138,21 @@ else {
                   <input id="inpt-book-title" type="text">
                   <label for="inpt-book-title">Title</label>
                 </div>
-                <div class="input-field col s12">
+                <div class="input-field col s6">
                   <input value="" id="inpt-book-author" type="text">
                   <label for="inpt-book-author">Author</label>
+                </div>
+                <div class="input-field col s6">
+                  <select id="inpt-book-category">
+                    <option value="other" disabled selected>Select</option>
+                    <option value="math">Math</option>
+                    <option value="science">Science</option>
+                    <option value="history">History</option>
+                    <option value="language">Language</option>
+                    <option value="fiction">Fiction</option>
+                    <option value="other">Other</option>
+                  </select>
+                  <label>Category</label>
                 </div>
                 <div class="input-field col s12">
                   <input value="" id="inpt-book-pub" type="text">
@@ -175,9 +190,21 @@ else {
                 <input class="active" value=" " id="inpt-mod-book-title" type="text">
                 <label for="inpt-mod-book-title">Title</label>
               </div>
-              <div class="input-field col s12">
+              <div class="input-field col s6">
                 <input class="active" value=" " id="inpt-mod-book-author" type="text">
                 <label for="inpt-mod-book-author">Author</label>
+              </div>
+              <div class="input-field col s6">
+                <select id="inpt-mod-book-category">
+                  <option value="other" disabled selected>Select</option>
+                  <option value="math">Math</option>
+                  <option value="science">Science</option>
+                  <option value="history">History</option>
+                  <option value="language">Language</option>
+                  <option value="fiction">Fiction</option>
+                  <option value="other">Other</option>
+                </select>
+                <label>Category</label>
               </div>
               <div class="input-field col s12">
                 <input class="active" value=" " id="inpt-mod-book-pub" type="text">

@@ -42,14 +42,17 @@ else {
           <i class="material-icons">arrow_drop_down</i>
         </div>
         <div class="collapse-menu">
-          <a href="#">MATH</a>
-          <a href="#">SCIENCE</a>
-          <a href="#" class="last">HISTORY</a>
+          <a href="category/?=math">MATH</a>
+          <a href="category/?=science">SCIENCE</a>
+          <a href="category/?=history">HISTORY</a>
+          <a href="category/?=language">LANGUAGE</a>
+          <a href="category/?=fiction">FICTION</a>
+          <a href="category/?=other" class="last">OTHER</a>
         </div>
       </li>
-      <li><a href="#!">NEW ARRIVALS</a></li>
-      <li><a href="#!">BEST SELLERS</a></li>
-      <li><a href="#!">SEE ALL BOOK</a></li>
+      <li><a href="category/?=all">NEW ARRIVALS</a></li>
+      <li><a href="category/?=all">BEST SELLERS</a></li>
+      <li><a href="category/?=all">SEE ALL BOOK</a></li>
     </ul>
     
     <!-- NAV BAR -->
@@ -310,9 +313,13 @@ Set a price you are looking to get for your book, list it, and review offers fro
                 <input disabled class="active" value=" " id="inpt-modal-book-title" type="text">
                 <label for="inpt-modal-book-title">Title</label>
               </div>
-              <div class="input-field col s12">
+              <div class="input-field col s6">
                 <input disabled class="active" value=" " id="inpt-modal-book-author" type="text">
                 <label for="inpt-modal-book-author">Author</label>
+              </div>
+              <div class="input-field col s6">
+                <input disabled class="active capitalize" value=" " id="inpt-modal-book-category" type="text">
+                <label for="inpt-modal-book-category">Category</label>
               </div>
               <div class="input-field col s12">
                 <input disabled class="active" value=" " id="inpt-modal-book-pub" type="text">

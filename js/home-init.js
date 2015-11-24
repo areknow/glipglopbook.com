@@ -291,6 +291,8 @@ function openBookModal(bookid) {
         $('.modal-header').html(result.title);
         $('#inpt-modal-book-title').val(result.title);
         $('#inpt-modal-book-author').val(result.author);
+        $('#inpt-modal-book-category').val(result.category);
+        $('select').material_select();
         $('#inpt-modal-book-pub').val(result.publisher);
         $('#inpt-modal-book-price').val(result.price);
         $('#inpt-modal-book-isbn').val(result.isbn);

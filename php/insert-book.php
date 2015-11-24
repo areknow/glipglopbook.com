@@ -4,6 +4,7 @@ include "con.php";
 
 $title = mysql_real_escape_string($_POST['title']);
 $author = mysql_real_escape_string($_POST['author']);
+$category = mysql_real_escape_string($_POST['category']);
 $pub = mysql_real_escape_string($_POST['pub']);
 $price = mysql_real_escape_string($_POST['price']);
 $isbn = mysql_real_escape_string($_POST['isbn']);
@@ -12,8 +13,8 @@ $img = mysql_real_escape_string($_POST['img']);
 
 
 $sql="INSERT INTO `books` 
-  (`id`, `isbn`, `title`, `author`, `publisher`, `price`, `owner`, `img`) VALUES 
-  (NULL, '$isbn', '$title', '$author', '$pub', '$price', '$owner', '$img')";
+  (`id`, `isbn`, `title`, `author`, `category`, `publisher`, `price`, `owner`, `img`) VALUES 
+  (NULL, '$isbn', '$title', '$author', '$category', '$pub', '$price', '$owner', '$img')";
 
 
 if (!mysql_query($sql,$db)) {
