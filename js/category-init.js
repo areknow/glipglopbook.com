@@ -14,11 +14,38 @@ $(function() {
   }
   
   
+  $('#btn-modal-book-buy-login').click(function() {
+    $('#modal-book').closeModal();
+    $('#modal-warning-login').openModal();
+  });
   $('#btn-modal-book-buy').click(function() {
     var id = this.getAttribute('book-id');
     openBuyModal(id);
     $('#modal-book').closeModal();
     $('#modal-buy').openModal();
+  });
+  
+  
+  $("#btn-login").click(function(){
+    var mydata = $("form.drop-down-login").serialize();
+    $.ajax({
+        type: "POST",
+        url: "../php/login.php",
+        data: mydata,
+        success: function(response, textStatus, xhr) {
+          console.log(response);
+          if (response=="true") {
+            $('.invalid').slideUp();
+            location.href=".";
+          }
+          else {
+            $('.invalid').slideDown('fast');
+            $(".drop-down-login input").val('');
+          }
+        },
+        error: function(xhr, textStatus, errorThrown) {}
+    });
+    return false;
   });
   
   
@@ -41,7 +68,6 @@ function loadBooks(cat) {
         var title = result[i].title;
         title = title.replace("'", "");
         title = title.trunc(60);
-        title = title.replace("'", "");
         $('.book-cont').append(
           $("<div id='"+result[i].bookid+"' class='book-wrapper'>")
           .append(

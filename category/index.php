@@ -8,10 +8,10 @@ if ($_SESSION['logged'] == true) {
   $result = mysql_query("SELECT * FROM users WHERE id = '$userid'");
   $row = mysql_fetch_array($result);
   $first = $row['first'];
+  $hidden = "hidden";
 }
 else {
-  header('Location: ../');
-  exit;
+  $adminhidden = "hidden";
 }
 ?>
 <!doctype html>
@@ -70,7 +70,25 @@ else {
         <a href=".." class="block"><i class="material-icons">home</i></a>
         <div id="btn-account" class="block"><i class="material-icons">account_circle</i></div>
       </div>
-      <form class="drop-down-login drop-down-admin z-depth-2">
+      <form class="drop-down-login z-depth-2 <?php echo $hidden;?>">
+        <div class="top">
+          <p>Access your profile</p>
+          <p class="invalid">Please try again</p>
+          <div><input name="email" placeholder="Email" type="text"></div>
+          <div><input name="password" placeholder="Password" type="password"></div>
+          <a class="help" href="../verify/forgot.php">
+            <i class="material-icons">help</i>
+            <span>Forgot password</span>
+          </a>
+          <div>
+            <button id="btn-login" name="login-submit" type="submit" class="waves-effect waves-light">ENTER</button>
+          </div>
+        </div>
+        <div class="bottom">
+          <a id="btn-new-account-link" href="#started">Create a new account</a>
+        </div>
+      </form>
+      <form class="drop-down-login drop-down-admin z-depth-2 <?php echo $adminhidden;?>">
         <div class="top logged-in-menu">
           <a href="../profile/" class="menu-item menu-top">
             <div class="avatar"><i class="material-icons avatar">account_circle</i></div>
@@ -158,9 +176,10 @@ else {
           </div>
         </div>
         <div class="modal-footer">
-          <div id="btn-modal-book-buy" class="modal-action waves-effect waves-green btn-flat">Buy</div>
-          <div id="btn-modal-book-cancel" class="modal-action modal-close waves-effect btn-flat">Cancel</div>
-        </div>
+        <div id="btn-modal-book-buy" class="modal-action waves-effect waves-green btn-flat <?php echo $adminhidden;?>">Buy</div>
+        <div id="btn-modal-book-buy-login" class="modal-action waves-effect waves-green btn-flat <?php echo $hidden;?>">Buy</div>
+        <div id="btn-modal-book-cancel" class="modal-action modal-close waves-effect btn-flat">Cancel</div>
+      </div>
       </div>
       
       <div id="modal-buy" class="modal modal-fixed-footer">
@@ -209,6 +228,17 @@ else {
         <div class="modal-footer">
           <div id="modal-warning-delete" class="modal-action waves-effect waves-red btn-flat">Delete</div>
           <div class="modal-action modal-close waves-effect btn-flat">Cancel</div>
+        </div>
+      </div>
+      
+      <div id="modal-warning-login" class="modal">
+        <div class="modal-content">
+          <h4>Authentication Required</h4>
+          <h5></h5>
+          <p>You must login or create an account in order to purchase books.</p>
+        </div>
+        <div class="modal-footer">
+          <div class="modal-action modal-close waves-effect btn-flat">OK</div>
         </div>
       </div>
     </section>
