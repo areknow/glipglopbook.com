@@ -304,46 +304,95 @@ Set a price you are looking to get for your book, list it, and review offers fro
     </section>
     
     <div id="modal-book" class="modal modal-fixed-footer">
-        <div class="modal-content">
-          <h4 class="modal-header">Title</h4>
-          <br>
-          <div class="row">
-            <div class="col s6">
-              <div class="input-field col s12">
-                <input disabled class="active" value=" " id="inpt-modal-book-title" type="text">
-                <label for="inpt-modal-book-title">Title</label>
-              </div>
-              <div class="input-field col s6">
-                <input disabled class="active" value=" " id="inpt-modal-book-author" type="text">
-                <label for="inpt-modal-book-author">Author</label>
-              </div>
-              <div class="input-field col s6">
-                <input disabled class="active capitalize" value=" " id="inpt-modal-book-category" type="text">
-                <label for="inpt-modal-book-category">Category</label>
-              </div>
-              <div class="input-field col s12">
-                <input disabled class="active" value=" " id="inpt-modal-book-pub" type="text">
-                <label for="inpt-modal-book-pub">Publisher</label>
-              </div>
-              <div class="input-field col s12">
-                <input disabled class="active" value=" " id="inpt-modal-book-isbn" type="text">
-                <label for="inpt-modal-book-isbn">ISBN</label>
-              </div>
-              <div class="input-field col s12">
-                <input disabled class="active" value=" " id="inpt-modal-book-price" type="text">
-                <label for="inpt-modal-book-price">Price</label>
-              </div>
+      <div class="modal-content">
+        <h4 class="modal-header">Title</h4>
+        <br>
+        <div class="row">
+          <div class="col s6">
+            <div class="input-field col s12">
+              <input disabled class="active" value=" " id="inpt-modal-book-title" type="text">
+              <label for="inpt-modal-book-title">Title</label>
             </div>
-            <div class="col s6">
-              <div class="preview"></div>
+            <div class="input-field col s6">
+              <input disabled class="active" value=" " id="inpt-modal-book-author" type="text">
+              <label for="inpt-modal-book-author">Author</label>
+            </div>
+            <div class="input-field col s6">
+              <input disabled class="active capitalize" value=" " id="inpt-modal-book-category" type="text">
+              <label for="inpt-modal-book-category">Category</label>
+            </div>
+            <div class="input-field col s12">
+              <input disabled class="active" value=" " id="inpt-modal-book-pub" type="text">
+              <label for="inpt-modal-book-pub">Publisher</label>
+            </div>
+            <div class="input-field col s12">
+              <input disabled class="active" value=" " id="inpt-modal-book-isbn" type="text">
+              <label for="inpt-modal-book-isbn">ISBN</label>
+            </div>
+            <div class="input-field col s12">
+              <input disabled class="active" value=" " id="inpt-modal-book-price" type="text">
+              <label for="inpt-modal-book-price">Price</label>
             </div>
           </div>
-        </div>
-        <div class="modal-footer">
-          <div id="btn-modal-book-buy" class="modal-action waves-effect waves-green btn-flat">Buy</div>
-          <div id="btn-modal-book-cancel" class="modal-action modal-close waves-effect btn-flat">Cancel</div>
+          <div class="col s6">
+            <div class="preview"></div>
+          </div>
         </div>
       </div>
+      <div class="modal-footer">
+        <div id="btn-modal-book-buy" class="modal-action waves-effect waves-green btn-flat <?php echo $adminhidden;?>">Buy</div>
+        <div id="btn-modal-book-buy-login" class="modal-action waves-effect waves-green btn-flat <?php echo $hidden;?>">Buy</div>
+        <div id="btn-modal-book-cancel" class="modal-action modal-close waves-effect btn-flat">Cancel</div>
+      </div>
+    </div>
+    
+    <div id="modal-buy" class="modal modal-fixed-footer">
+      <div class="modal-content">
+        <h4 class="modal-header">Request to Purchase</h4>
+        <div class="row header">
+          <div class="col s12">
+            <div class="title">title</div>
+            <div class="author">author</div>
+            <div class="isbn">isbn</div>
+          </div>
+        </div>
+        <div class="row icons center">
+          <div class="col s4">
+            <i class="btl bt-user"></i>
+            <div id="modal-buy-user">first last</div>
+          </div>
+          <div class="col s4">
+            <i class="btl bt-map"></i>
+            <div id="modal-buy-campus">campus</div>
+          </div>
+          <div class="col s4">
+            <i class="btl bt-money"></i>
+            <div id="modal-buy-price">$price</div>
+          </div>
+        </div>
+        <div class="row message">
+          <div class="input-field col s12">
+            <textarea id="txt-modal-buy-message" class="materialize-textarea"></textarea>
+            <label for="txt-modal-buy-message">Message</label>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div id="btn-modal-buy-send" class="modal-action waves-effect waves-green btn-flat">Send</div>
+        <div id="btn-modal-buy-cancel" class="modal-action modal-close waves-effect btn-flat">Cancel</div>
+      </div>
+    </div>
+    
+    <div id="modal-warning" class="modal">
+      <div class="modal-content">
+        <h4>Authentication Required</h4>
+        <h5></h5>
+        <p>You must login or create an account in order to purchase books.</p>
+      </div>
+      <div class="modal-footer">
+        <div class="modal-action modal-close waves-effect btn-flat">OK</div>
+      </div>
+    </div>
   </body>
   <script type="text/javascript" src="js/jquery.1.11.3.min.js"></script>
   <script type="text/javascript" src="js/jquery.easing.js"></script>

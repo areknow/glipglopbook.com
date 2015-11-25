@@ -96,6 +96,17 @@ $(function() {
   
   
   
+  $('#btn-modal-book-buy').click(function(){
+    var id = this.getAttribute('book-id');
+    openBuyModal(id);
+    $('#modal-book').closeModal();
+    $('#modal-buy').openModal();
+  });
+  $('#btn-modal-book-buy-login').click(function(){
+    $('#modal-book').closeModal();
+    $('#modal-warning').openModal();
+  });
+  
   
     //about button clicks to show tabs
   $("#btn-about1").click(function(event){showTab(1);});
@@ -288,7 +299,7 @@ function openBookModal(bookid) {
       dataType: 'json',
       success: function(result){
         console.log(result);
-        $('.modal-header').html(result.title);
+        $('#modal-book .modal-header').html(result.title);
         $('#inpt-modal-book-title').val(result.title);
         $('#inpt-modal-book-author').val(result.author);
         $('#inpt-modal-book-category').val(result.category);
@@ -300,8 +311,40 @@ function openBookModal(bookid) {
       }
     });
   $('#modal-book').openModal();
+  $('#btn-modal-book-buy').attr('book-id',bookid);
 }
 
+
+function openBuyModal(bookid) {
+  console.log(bookid);
+  $.ajax( {
+    type: "POST",
+    url: "php/get-book.php",
+    data: {bookid:bookid},
+    cache: false,
+    dataType: 'json',
+    success: function(result){
+      console.log(result);
+      $('#modal-buy .title').text(result.title);
+      $('#modal-buy .author').text(result.author);
+      $('#modal-buy .isbn').text(result.isbn);
+      $('#modal-buy-price').text(result.price);
+      console.log(result.owner);
+      $.ajax( {
+        type: "POST",
+        url: "php/get-owner.php",
+        data: {id:result.owner},
+        cache: false,
+        dataType: 'json',
+        success: function(result){
+          console.log(result);
+          $('#modal-buy-user').text(result.first+" "+result.last);
+          $('#modal-buy-campus').text(result.campus);
+        }
+      });
+    }
+  });
+}
 
 
 function isValidEmailAddress(emailAddress) {

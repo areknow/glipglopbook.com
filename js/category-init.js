@@ -40,6 +40,8 @@ function loadBooks(cat) {
       for (i = 0; i < result.length; i++) {
         var title = result[i].title;
         title = title.replace("'", "");
+        title = title.trunc(60);
+        title = title.replace("'", "");
         $('.book-cont').append(
           $("<div id='"+result[i].bookid+"' class='book-wrapper'>")
           .append(
