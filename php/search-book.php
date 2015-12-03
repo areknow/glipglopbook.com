@@ -1,6 +1,5 @@
 <?php
 
-
 // bind to database
 include 'con.php';
 
@@ -13,8 +12,6 @@ if ($db->connect_errno) {
     printf("Connect failed: %s\n", $db->connect_error);
     exit();
 }
-
-
 
 // define output template
 $html = '';
@@ -53,9 +50,10 @@ if (strlen($search_string) >= 1 && $search_string !== ' ') {
     foreach ($result_array as $result) {
 
       // format output strings
-      $display_function = preg_replace("/".$search_string."/i", "<b class='highlight'>".$search_string."</b>", $result['author']);
-      $display_name = preg_replace("/".$search_string."/i", "<b class='highlight'>".$search_string."</b>", $result['title']);
-
+      $display_function = $result['author'];
+      $display_name = $result['title'];
+      
+      // create output variables
       $output = str_replace('nameString', $display_name, $html);
       $output = str_replace('functionString', $display_function, $output);
       $output = str_replace('urlString', $display_url, $output);
@@ -72,4 +70,7 @@ if (strlen($search_string) >= 1 && $search_string !== ' ') {
   }
 }
 
+//$display_name = preg_replace("/".$search_string."/i", "<b class='highlight'>".$search_string."</b>", $result['title']);
+//$display_function = preg_replace("/".$search_string."/i", "<b class='highlight'>".$search_string."</b>", $result['author']);
 ?>
+

@@ -29,9 +29,12 @@ $(function() {
   //load query from url and search
   var url = $(location).attr('href');
   url = getPathFromUrl(url);
-  url = decodeURIComponent(url)
-  $('#inpt-search').val(url);
-  search();
+  if(url) {
+    url = decodeURIComponent(url)
+    $('#inpt-search').val(url);
+    search();
+  }
+  
   
   
 });//end doc ready
