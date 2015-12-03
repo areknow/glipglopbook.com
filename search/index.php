@@ -166,7 +166,7 @@ else {
         </div>
       </div>
         
-      <div id="modal-buy" class="modal modal-fixed-footer">
+      <form action="../request/" method="post" id="modal-buy" class="modal modal-fixed-footer">
         <div class="modal-content">
           <h4 class="modal-header">Request to Purchase</h4>
           <div class="row header">
@@ -192,16 +192,18 @@ else {
           </div>
           <div class="row message">
             <div class="input-field col s12">
-              <textarea id="txt-modal-buy-message" class="materialize-textarea"></textarea>
+              <textarea name="message" id="txt-modal-buy-message" class="materialize-textarea"></textarea>
               <label for="txt-modal-buy-message">Message</label>
             </div>
           </div>
         </div>
         <div class="modal-footer">
-          <div id="btn-modal-buy-send" class="modal-action waves-effect waves-green btn-flat">Send</div>
+          <input name="book" id="inpt-hide-book" type="hidden">
+          <input name="owner" id="inpt-hide-owner" type="hidden">
+          <button type="submit" name="request-book" id="btn-modal-buy-send" class="modal-action waves-effect waves-green btn-flat">Send</button>
           <div id="btn-modal-buy-cancel" class="modal-action modal-close waves-effect btn-flat">Cancel</div>
         </div>
-      </div>
+      </form>
     </section>
   </body>
   <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>

@@ -316,6 +316,8 @@ function openBookModal(bookid) {
 
 
 function openBuyModal(bookid) {
+  $('#txt-modal-buy-message').val('');
+  $("label[for='txt-modal-buy-message']").removeClass('active');
   console.log(bookid);
   $.ajax( {
     type: "POST",
@@ -329,6 +331,8 @@ function openBuyModal(bookid) {
       $('#modal-buy .author').text(result.author);
       $('#modal-buy .isbn').text(result.isbn);
       $('#modal-buy-price').text(result.price);
+      $('#inpt-hide-book').val(bookid);
+      $('#inpt-hide-owner').val(result.owner);
       console.log(result.owner);
       $.ajax( {
         type: "POST",
