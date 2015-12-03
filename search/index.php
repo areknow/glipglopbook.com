@@ -200,6 +200,7 @@ else {
         <div class="modal-footer">
           <input name="book" id="inpt-hide-book" type="hidden">
           <input name="owner" id="inpt-hide-owner" type="hidden">
+          <input name="user" id="inpt-hide-user" type="hidden" value="<?php echo $userid?>">
           <button type="submit" name="request-book" id="btn-modal-buy-send" class="modal-action waves-effect waves-green btn-flat">Send</button>
           <div id="btn-modal-buy-cancel" class="modal-action modal-close waves-effect btn-flat">Cancel</div>
         </div>

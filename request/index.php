@@ -9,6 +9,7 @@ if (isset($_POST['request-book'])) {
   
   $bookid = mysql_real_escape_string($_POST['book']);
   $ownerid = mysql_real_escape_string($_POST['owner']);
+  $userid = mysql_real_escape_string($_POST['user']);
   $message = mysql_real_escape_string($_POST['message']);
   
   $bookresults = mysql_query("SELECT * FROM books WHERE id = $bookid");
@@ -20,14 +21,21 @@ if (isset($_POST['request-book'])) {
   
   $ownerresults = mysql_query("SELECT * FROM users WHERE id = $ownerid");
   while($ownerrow = mysql_fetch_array($ownerresults)) {
-    $first = $ownerrow['first'];
-    $last = $ownerrow['last'];
-    $email = $ownerrow['email'];
-    $campus = $ownerrow['campus'];
+    $ownerfirst = $ownerrow['first'];
+    $ownerlast = $ownerrow['last'];
+    $owneremail = $ownerrow['email'];
+  }
+  
+  $userresults = mysql_query("SELECT * FROM users WHERE id = $userid");
+  while($userrow = mysql_fetch_array($userresults)) {
+    $first = $userrow['first'];
+    $last = $userrow['last'];
+    $email = $userrow['email'];
+    $campus = $userrow['campus'];
   }
   
 
-  $to      = $email;
+  $to      = $owneremail;
   $subject = 'GlipGlop | Book Purchase Request';
   $message = '
 
@@ -76,12 +84,11 @@ Once you have sold your book, remember to mark it as "sold" in your inventory.
     <div class="verified z-depth-1">
       <div class="header"><img src="../res/logo/white.png"></div>
       <form action="../php/reset.php" method="post" class="body row">
-        <h5>Message sent to <?php echo "$first $last" ?></h5>
+        <h5>Message sent to <?php echo "$ownerfirst $ownerlast" ?></h5>
         <p style="font-size:14px">Your request to purchase "<?php echo mb_strimwidth($title, 0, 30, "...");?>" has been sent. Please monitor your email for their response.</p>
         <a href="../" class="waves-effect waves-light btn">HOME</a>
       </form>
     </div>
-    
   </body>
   <script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
   <script type="text/javascript" src="../materialize/js/materialize.min.js"></script>
