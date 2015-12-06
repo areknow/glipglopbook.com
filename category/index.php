@@ -53,7 +53,7 @@ else {
       </li>
       <li><a href=".?=all">NEW ARRIVALS</a></li>
       <li><a href=".?=all">BEST SELLERS</a></li>
-      <li><a href=".?=all">SEE ALL BOOK</a></li>
+      <li><a href=".?=all">SEE ALL BOOKS</a></li>
     </ul>
     
     <!-- NAV BAR -->

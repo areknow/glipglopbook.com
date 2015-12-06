@@ -39,11 +39,28 @@ $(function() {
           var title = result.title[0];
           var author = result.author[0];
           var publisher = result.publisher[0];
-          var price = "N/A";
-          if (result.lownewprice) {
-            price = result.lownewprice[0];
-          }
           var coverUrl = result.img[0];
+          
+          var price = 0;
+          var listprice = 0;
+          var lownewprice = 0;
+          var lowusedprice = 0;
+          
+          if (result.listprice) {
+            listprice = cleanMoney(result.listprice[0]);}
+          if (result.lownewprice) {
+            lownewprice = cleanMoney(result.lownewprice[0]);}
+          if (result.lownewprice) {
+            lowusedprice = cleanMoney(result.lowusedprice[0]);}
+          
+          //price = (((listprice + lownewprice + lowusedprice)/3)*0.95);
+          price = ((listprice*0.9+lownewprice*0.85+lowusedprice*0.75)/3.25);
+          
+          console.log('calcprice: '+price.toFixed(2));
+          console.log('listprice: '+listprice);
+          console.log('lownewprice: '+lownewprice);
+          console.log('lowusedprice: '+lowusedprice);
+              
           $("label[for='inpt-book-title']").addClass('active');
           $("#inpt-book-title").val(title);
           $("label[for='inpt-book-author']").addClass('active');
@@ -51,7 +68,7 @@ $(function() {
           $("label[for='inpt-book-pub']").addClass('active');
           $("#inpt-book-pub").val(publisher);
           $("label[for='inpt-book-price']").addClass('active');
-          $("#inpt-book-price").val(price);
+          $("#inpt-book-price").val('$'+price.toFixed(2));
           $("label[for='inpt-book-isbn']").addClass('active');
           $("#inpt-book-isbn").val(isbn2);
           $(".books .preview").css('background-image','url('+coverUrl+')');
@@ -278,4 +295,9 @@ function clearModal() {
   $("label[for='inpt-book-isbn']").removeClass('active');
   $('.books .preview').css('background-image','');
   $('.lbl-isbn-error').hide();
+}
+
+
+function cleanMoney(input) {
+  return Number(input.replace(/[^0-9\.]+/g,""));
 }

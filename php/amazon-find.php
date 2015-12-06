@@ -3,6 +3,7 @@
 $isbn = $_POST['isbn'];
 
 $isbn = str_replace('-', '', $isbn);
+$isbn = str_replace(' ', '', $isbn);
 
 require_once 'amazon.php';
 
@@ -28,7 +29,7 @@ $error = $response->Items->Request->Errors->Error->Code;
 if ($error=="AWS.InvalidParameterValue") {
   // encode error response for AJAX
   echo json_encode(array(
-    "error" => "false"
+    "error" => "true"
   ));
 }
 else {
