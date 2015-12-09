@@ -31,6 +31,13 @@ else {
   
   <!-- BODY -->
   <body id="top" class="front">
+    <div id="loader-wrapper">
+      <div id="loader" class="">
+        <img src="res/logo/white.jpg">
+      </div>
+      <div class="loader-section section-left"></div>
+      <div class="loader-section section-right"></div>
+    </div>
     <div class="login-overlay"></div>
     
     <!-- SLIDE OUT -->
