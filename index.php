@@ -94,10 +94,6 @@ else {
               <div class="link">View profile</div>
             </div>
           </a>
-          <a href="dashboard/"  class="menu-item">
-            <div><i class="material-icons">dashboard</i></div>
-            <div>Dashboard</div>
-          </a>
           <a href="books/"  class="menu-item">
             <div><i class="material-icons">book</i></div>
             <div>Books</div>
@@ -106,13 +102,9 @@ else {
             <div><i class="material-icons">history</i></div>
             <div>History</div>
           </a>
-          <a href="transactions/"  class="menu-item">
-            <div><i class="material-icons">payment</i></div>
-            <div>Transactions</div>
-          </a>
-          <a href="ratings/"  class="menu-item">
-            <div><i class="material-icons">star_half</i></div>
-            <div>Ratings</div>
+          <a href="category/"  class="menu-item">
+            <div><i class="material-icons">library_books</i></div>
+            <div>Categories</div>
           </a>
           <a href="search/"  class="menu-item">
             <div><i class="material-icons">search</i></div>
@@ -288,10 +280,10 @@ Set a price you are looking to get for your book, list it, and review offers fro
         </div>
         <div class="col l3 m3 s12">
           <h3>Helpful links</h3>
-          <a>My Account</a>
-          <a>Privacy Policy</a>
-          <a>Terms of Service</a>
-          <a>Cookies Policy</a>
+          <a href="profile/">My Account</a>
+          <a href="privacy/">Privacy Policy</a>
+          <a href="terms/">Terms of Service</a>
+          <a href="cookies/">Cookies Policy</a>
         </div>
         <div class="col l3 m3 s12">
           <h3>Social Media</h3>
@@ -400,6 +392,8 @@ Set a price you are looking to get for your book, list it, and review offers fro
   <script type="text/javascript" src="js/jquery.1.11.3.min.js"></script>
   <script type="text/javascript" src="js/jquery.easing.js"></script>
   <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+  <script type="text/javascript" src="js/tweenmax.min.js"></script>
+  <script type="text/javascript" src="js/tweenscroll.min.js"></script>
   <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
   <script type="text/javascript" src="plugins/owl.carousel/owl.carousel.min.js"></script>
   <script type="text/javascript" src="js/wow.min.js"></script>

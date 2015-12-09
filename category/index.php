@@ -97,10 +97,6 @@ else {
               <div class="link">View profile</div>
             </div>
           </a>
-          <a href="../dashboard/"  class="menu-item">
-            <div><i class="material-icons">dashboard</i></div>
-            <div>Dashboard</div>
-          </a>
           <a href="../books/"  class="menu-item">
             <div><i class="material-icons">book</i></div>
             <div>Books</div>
@@ -109,13 +105,13 @@ else {
             <div><i class="material-icons">history</i></div>
             <div>History</div>
           </a>
-          <a href="../transactions/"  class="menu-item">
-            <div><i class="material-icons">payment</i></div>
-            <div>Transactions</div>
+          <a href="../category/"  class="menu-item">
+            <div><i class="material-icons">library_books</i></div>
+            <div>Categories</div>
           </a>
-          <a href="../ratings/"  class="menu-item">
-            <div><i class="material-icons">star_half</i></div>
-            <div>Ratings</div>
+          <a href="../search/"  class="menu-item">
+            <div><i class="material-icons">search</i></div>
+            <div>Search</div>
           </a>
           <a href="../search/"  class="menu-item">
             <div><i class="material-icons">search</i></div>

@@ -10,10 +10,6 @@ if ($_SESSION['logged'] == true) {
   $booknum = mysql_num_rows($bookresults);
   $first = $row['first'];
 }
-else {
-  header('Location: ../');
-  exit;
-}
 ?>
 <!doctype html>
 <html lang="en">
@@ -21,7 +17,7 @@ else {
     <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
     <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no'>
     <meta name='author' content='Arnaud Crowther, Alex Osbourne, Amanda Labelle, Eric Maul'>
-    <title>GlipGlop | Dashboard</title>
+    <title>GlipGlop | FAQ</title>
     <link rel="stylesheet" href="../materialize/css/materialize.min.css" type="text/css">
     <link rel="stylesheet" href="../plugins/owl.carousel/assets/owl.carousel.css" type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -105,29 +101,32 @@ else {
     
     <section class="profile dashboard">
       <div class="sheet z-depth-1">
-        <h1>Dashboard</h1>
-        <div class="row inner">
-          <div class="col s12 m4">
-            <a href="../books/" class="widget shade1 z-depth-1">
-              <div class="number"><?php echo $booknum; ?></div>
-              <div class="desc">Books</div>
-              <i class="material-icons">book</i>
-            </a>
-          </div>
-          <div class="col s12 m4">
-            <a href="../transactions/" class="widget shade2 z-depth-1">
-              <div class="number">0</div>
-              <div class="desc">Transactions</div>
-              <i class="material-icons">payment</i>
-            </a>
-          </div>
-          <div class="col s12 m4">
-            <a href="../ratings/" class="widget shade3 z-depth-1">
-              <div class="number">0</div>
-              <div class="desc">Ratings</div>
-              <i class="material-icons">star_half</i>
-            </a>
-          </div>
+        <h1>Frequently Asked Questions</h1>
+        <div class="inner">
+
+
+          
+<h5>“How can I cash out my Glip Glop points?”</h5>
+	
+<p>At this time, we not have implemented a formal buyout feature into the website. You can, however set up an informal trade with another trader using paypal or by contacting the admins.</p>
+
+<h5>“Can I meet people that live close to me?”</h5>
+
+<p>Yes! For college students, we recommend adding your campus information to your profile to help with local trades. Also, when initiating a trade with another trader, if you notice their address is close to you, you can set up an informal meeting at a public place.</p>
+
+<h5>“Do I have to sign up with Glip Glop in order to buy a book from someone?”</h5>
+	
+<p>Yes. Glip Glop is not designed for a one-time purchase scenario. The real benefit from the site comes from long-term trading of textbooks or reading books. However, if you want to do a one time purchase, you can signup and purchase enough points for the book and just do the one trade.</p>
+
+<h5>“Can I adjust the price of the book I want to sell?”</h5>
+
+<p>Yes. You have free range to sell your books at any price. We will autofill the price with the suggested selling price, but you can increase or decrease that amount as you see fit.</p>
+
+<h5>“Do I have to know the exact name of the book I am looking for?”</h5>
+
+<p>No, we have multiple ways to search for a book. You can search using the book name, author, ISBN, etc. You can also browse books by their category or visit the New Arrivals section for the most recently added books.</p>
+
+
         </div>
       </div>
     </section>

@@ -10,10 +10,6 @@ if ($_SESSION['logged'] == true) {
   $booknum = mysql_num_rows($bookresults);
   $first = $row['first'];
 }
-else {
-  header('Location: ../');
-  exit;
-}
 ?>
 <!doctype html>
 <html lang="en">
@@ -21,7 +17,7 @@ else {
     <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
     <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no'>
     <meta name='author' content='Arnaud Crowther, Alex Osbourne, Amanda Labelle, Eric Maul'>
-    <title>GlipGlop | Dashboard</title>
+    <title>GlipGlop | Cookies Policy</title>
     <link rel="stylesheet" href="../materialize/css/materialize.min.css" type="text/css">
     <link rel="stylesheet" href="../plugins/owl.carousel/assets/owl.carousel.css" type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -105,29 +101,40 @@ else {
     
     <section class="profile dashboard">
       <div class="sheet z-depth-1">
-        <h1>Dashboard</h1>
-        <div class="row inner">
-          <div class="col s12 m4">
-            <a href="../books/" class="widget shade1 z-depth-1">
-              <div class="number"><?php echo $booknum; ?></div>
-              <div class="desc">Books</div>
-              <i class="material-icons">book</i>
-            </a>
-          </div>
-          <div class="col s12 m4">
-            <a href="../transactions/" class="widget shade2 z-depth-1">
-              <div class="number">0</div>
-              <div class="desc">Transactions</div>
-              <i class="material-icons">payment</i>
-            </a>
-          </div>
-          <div class="col s12 m4">
-            <a href="../ratings/" class="widget shade3 z-depth-1">
-              <div class="number">0</div>
-              <div class="desc">Ratings</div>
-              <i class="material-icons">star_half</i>
-            </a>
-          </div>
+        <h1>Cookies Policy</h1>
+        <div class="inner">
+<h5>What Are Cookies</h5>
+
+<p>As is common practice with almost all professional websites this site uses cookies, which are tiny files that are downloaded to your computer, to improve your experience. This page describes what information they gather, how we use it and why we sometimes need to store these cookies. We will also share how you can prevent these cookies from being stored however this may downgrade or 'break' certain elements of the sites functionality.</p>
+
+<p>For more general information on cookies see the Wikipedia article on HTTP Cookies...</p>
+
+<h5>How We Use Cookies</h5>
+
+<p>We use cookies for a variety of reasons detailed below. Unfortunately in most cases there are no industry standard options for disabling cookies without completely disabling the functionality and features they add to this site. It is recommended that you leave on all cookies if you are not sure whether you need them or not in case they are used to provide a service that you use.</p>
+
+<h5>Disabling Cookies</h5>
+
+<p>You can prevent the setting of cookies by adjusting the settings on your browser (see your browser Help for how to do this). Be aware that disabling cookies will affect the functionality of this and many other websites that you visit. Disabling cookies will usually result in also disabling certain functionality and features of the this site. Therefore it is recommended that you do not disable cookies.</p>
+
+<h5>The Cookies We Set</h5>
+
+<p>If you create an account with us then we will use cookies for the management of the signup process and general administration. These cookies will usually be deleted when you log out however in some cases they may remain afterwards to remember your site preferences when logged out.</p>
+
+<p>We use cookies when you are logged in so that we can remember this fact. This prevents you from having to log in every single time you visit a new page. These cookies are typically removed or cleared when you log out to ensure that you can only access restricted features and areas when logged in.</p>
+
+<p>When you submit data to through a form such as those found on contact pages or comment forms cookies may be set to remember your user details for future correspondence.</p>
+
+<h5>Third Party Cookies</h5>
+
+<p>In some special cases we also use cookies provided by trusted third parties. The following section details which third party cookies you might encounter through this site.</p>
+
+<h5>More Information</h5>
+
+<p>Hopefully that has clarified things for you and as was previously mentioned if there is something that you aren't sure whether you need or not it's usually safer to leave cookies enabled in case it does interact with one of the features you use on our site. However if you are still looking for more information then you can contact us through one of our preferred contact methods.</p>
+
+<p>Email: <a href="mailto:help@glipglopbook.com">help@glipglopbook.com</a></p>
+
         </div>
       </div>
     </section>

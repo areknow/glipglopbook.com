@@ -10,7 +10,7 @@ if (isset($_POST['request-book'])) {
   $bookid = mysql_real_escape_string($_POST['book']);
   $ownerid = mysql_real_escape_string($_POST['owner']);
   $userid = mysql_real_escape_string($_POST['user']);
-  $message = mysql_real_escape_string($_POST['message']);
+  $textmessage = mysql_real_escape_string($_POST['message']);
   
   $bookresults = mysql_query("SELECT * FROM books WHERE id = $bookid");
   while($bookrow = mysql_fetch_array($bookresults)) {
@@ -52,7 +52,7 @@ Requested from:
 Name: '.$first.' '.$last.'
 Email: '.$email.'
 Location: '.$campus.'
-Message: '.$message.'
+Message: '.$textmessage.'
 
 --------------------------------------
 
@@ -64,6 +64,15 @@ Once you have sold your book, remember to mark it as "sold" in your inventory.
   $headers = "From: noreply@glipglopbook.com\r\nReply-to: $email";
   mail($to, $subject, $message, $headers);
   
+  
+  $sql="INSERT INTO `history` 
+  (`id`, `buyerid`, `buyerfirst`, `buyerlast`, `buyeremail`, `buyercampus`,`sellerid`, `sellerfirst`, `sellerlast`, `selleremail`, `bookid`, `isbn`, `title`, `author`, `message`) VALUES 
+  (NULL, '$userid', '$first', '$last', '$email', '$campus', '$ownerid', '$ownerfirst', '$ownerlast', '$owneremail', '$bookid', '$isbn', '$title', '$author', '$textmessage')";
+
+  //insert or die
+  if (!mysql_query($sql,$db)) {
+    die('Error: ' . mysql_error());
+  }
 }
 
 ?>

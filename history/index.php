@@ -19,7 +19,7 @@ else {
     <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
     <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no'>
     <meta name='author' content='Arnaud Crowther, Alex Osbourne, Amanda Labelle, Eric Maul'>
-    <title>GlipGlop | Dashboard</title>
+    <title>GlipGlop | History</title>
     <link rel="stylesheet" href="../materialize/css/materialize.min.css" type="text/css">
     <link rel="stylesheet" href="../plugins/owl.carousel/assets/owl.carousel.css" type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -78,10 +78,6 @@ else {
               <div class="link">View profile</div>
             </div>
           </a>
-          <a href="../dashboard/"  class="menu-item">
-            <div><i class="material-icons">dashboard</i></div>
-            <div>Dashboard</div>
-          </a>
           <a href="../books/"  class="menu-item">
             <div><i class="material-icons">book</i></div>
             <div>Books</div>
@@ -90,13 +86,9 @@ else {
             <div><i class="material-icons">history</i></div>
             <div>History</div>
           </a>
-          <a href="../transactions/"  class="menu-item">
-            <div><i class="material-icons">payment</i></div>
-            <div>Transactions</div>
-          </a>
-          <a href="../ratings/"  class="menu-item">
-            <div><i class="material-icons">star_half</i></div>
-            <div>Ratings</div>
+          <a href="../category/"  class="menu-item">
+            <div><i class="material-icons">library_books</i></div>
+            <div>Categories</div>
           </a>
           <a href="../search/"  class="menu-item">
             <div><i class="material-icons">search</i></div>
@@ -109,9 +101,53 @@ else {
       </form>
     </div>
     
-    <section class="profile">
+    <section class="profile history">
       <div class="sheet z-depth-1">
         <h1>History</h1>
+        <div class="inner">
+          
+          <ul class="collapsible popout" data-collapsible="accordion">
+          <?php 
+          $requestresults = mysql_query("SELECT * FROM history WHERE sellerid = $userid");
+          while($requests = mysql_fetch_array($requestresults)) {
+            $booktitle = $requests['title'];
+            $buyerfirst = $requests['buyerfirst'];
+            $buyerlast = $requests['buyerlast'];
+            $buyeremail = $requests['buyeremail'];
+            $buyercampus = $requests['buyercampus'];
+            $message = $requests['message'];
+            $datetime = new DateTime( $result['timestamp'] );
+            $timestamp = $datetime->format( 'd-m-Y' );
+            ?>
+            <li>
+              <div class="collapsible-header row">
+                <div class="col s8 truncate"><i class="material-icons">book</i><?php echo $booktitle ?></div>
+                <div class="col s4 date"><?php echo $timestamp ?></div>
+              </div>
+              <div class="collapsible-body">
+                <div class="body-inner row">
+                  <div class="col s6">
+                    <div class="heading">Requested from</div>
+                    <div class="content">
+                      <?php echo "$buyerfirst $buyerlast" ?><br>
+                      <a href="mailto:<?php echo $buyeremail ?>"><?php echo $buyeremail ?></a><br>
+                      <?php echo $buyercampus ?>
+                    </div>
+                  </div>
+                  <div class="col s6">
+                    <div class="heading">Message</div>
+                    <div class="content">
+                      <?php echo $message ?><br>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+            </li>
+            <?php }?>
+          </ul>
+          
+        </div>
       </div>
     </section>
   </body>
@@ -124,5 +160,5 @@ else {
   <script type="text/javascript" src="../js/parallax.min.js"></script>
   <script type="text/javascript" src="../js/pace.js"></script>
   <script type="text/javascript" src="../js/base-init.js"></script>
-  <script type="text/javascript" src="../js/profile-init.js"></script>
+  <script type="text/javascript" src="../js/history-init.js"></script>
 </html>
