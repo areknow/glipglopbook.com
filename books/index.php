@@ -95,6 +95,10 @@ else {
             <div><i class="material-icons">search</i></div>
             <div>Search</div>
           </a>
+          <a href="../faq/"  class="menu-item">
+            <div><i class="material-icons">help</i></div>
+            <div>Help</div>
+          </a>
         </div>
         <div class="bottom">
           <a id="btn-new-account-link" href="../php/signout.php">Sign out</a>

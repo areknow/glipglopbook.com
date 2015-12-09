@@ -110,6 +110,10 @@ else {
             <div><i class="material-icons">search</i></div>
             <div>Search</div>
           </a>
+          <a href="faq/"  class="menu-item">
+            <div><i class="material-icons">help</i></div>
+            <div>Help</div>
+          </a>
         </div>
         <div class="bottom">
           <a id="btn-new-account-link" href="php/signout.php">Sign out</a>
@@ -220,9 +224,9 @@ Set a price you are looking to get for your book, list it, and review offers fro
               <input id="inpt-mini-search" type="text" placeholder="SEARCH FOR A BOOK">
               <ul id="results" class="z-depth-1"></ul>
             </div>
-            <a href="#!" class="waves-effect waves-light">
+            <a href="faq/" class="waves-effect waves-light">
               <i class="material-icons prefix">live_help</i>Read the FAQ</a>
-            <a href="#!" class="waves-effect waves-light">
+            <a href="terms/" class="waves-effect waves-light">
               <i class="material-icons prefix">school</i>Terms of Service</a>
             <a target="_blank" href="https://github.com/arnaudcrowther/glipglopbook.com" class="waves-effect waves-light">
               <i class="fab fab-github"></i>GitHub Documentation</a>
