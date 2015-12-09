@@ -22,8 +22,6 @@ $(function() {
   
   
   
-
-  
   //home page modal
   $("#btn-modal-started-cancel").click(function(){
     $("#input-started-firstname").val("");

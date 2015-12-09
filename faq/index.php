@@ -107,30 +107,16 @@ if ($_SESSION['logged'] == true) {
       <div class="sheet z-depth-1">
         <h1>Frequently Asked Questions</h1>
         <div class="inner">
-
-
-          
-<h5>“How can I cash out my Glip Glop points?”</h5>
-	
-<p>At this time, we not have implemented a formal buyout feature into the website. You can, however set up an informal trade with another trader using paypal or by contacting the admins.</p>
-
-<h5>“Can I meet people that live close to me?”</h5>
-
-<p>Yes! For college students, we recommend adding your campus information to your profile to help with local trades. Also, when initiating a trade with another trader, if you notice their address is close to you, you can set up an informal meeting at a public place.</p>
-
-<h5>“Do I have to sign up with Glip Glop in order to buy a book from someone?”</h5>
-	
-<p>Yes. Glip Glop is not designed for a one-time purchase scenario. The real benefit from the site comes from long-term trading of textbooks or reading books. However, if you want to do a one time purchase, you can signup and purchase enough points for the book and just do the one trade.</p>
-
-<h5>“Can I adjust the price of the book I want to sell?”</h5>
-
-<p>Yes. You have free range to sell your books at any price. We will autofill the price with the suggested selling price, but you can increase or decrease that amount as you see fit.</p>
-
-<h5>“Do I have to know the exact name of the book I am looking for?”</h5>
-
-<p>No, we have multiple ways to search for a book. You can search using the book name, author, ISBN, etc. You can also browse books by their category or visit the New Arrivals section for the most recently added books.</p>
-
-
+          <h5>“How can I cash out my Glip Glop points?”</h5>
+          <p>At this time, we not have implemented a formal buyout feature into the website. You can, however set up an informal trade with another trader using paypal or by contacting the admins.</p>
+          <h5>“Can I meet people that live close to me?”</h5>
+          <p>Yes! For college students, we recommend adding your campus information to your profile to help with local trades. Also, when initiating a trade with another trader, if you notice their address is close to you, you can set up an informal meeting at a public place.</p>
+          <h5>“Do I have to sign up with Glip Glop in order to buy a book from someone?”</h5>
+          <p>Yes. Glip Glop is not designed for a one-time purchase scenario. The real benefit from the site comes from long-term trading of textbooks or reading books. However, if you want to do a one time purchase, you can signup and purchase enough points for the book and just do the one trade.</p>
+          <h5>“Can I adjust the price of the book I want to sell?”</h5>
+          <p>Yes. You have free range to sell your books at any price. We will autofill the price with the suggested selling price, but you can increase or decrease that amount as you see fit.</p>
+          <h5>“Do I have to know the exact name of the book I am looking for?”</h5>
+          <p>No, we have multiple ways to search for a book. You can search using the book name, author, ISBN, etc. You can also browse books by their category or visit the New Arrivals section for the most recently added books.</p>
         </div>
       </div>
     </section>
