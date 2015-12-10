@@ -8,9 +8,9 @@ $cat = $_POST['cat'];
 
 // determine category and make query
 if($cat == "all") {
-  $query = "SELECT * FROM books";
+  $query = "SELECT * FROM books ORDER BY title";
 } else {
-  $query = "SELECT * FROM books WHERE category = '$cat'";
+  $query = "SELECT * FROM books WHERE category = '$cat' ORDER BY title";
 }
 
 // run query to get all user books
