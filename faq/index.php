@@ -107,8 +107,8 @@ if ($_SESSION['logged'] == true) {
       <div class="sheet z-depth-1">
         <h1>Frequently Asked Questions</h1>
         <div class="inner">
-          <h5>“How can I cash out my Glip Glop points?”</h5>
-          <p>At this time, we not have implemented a formal buyout feature into the website. You can, however set up an informal trade with another trader using paypal or by contacting the admins.</p>
+          <h5>“What if I have an issue that is not listed here?”</h5>
+          <p>If you have additional questions beyond those covered here, or if you would like to raise an issue with a book transaction, please e-mail <a href="mailto:help@glipglopbook.com">help@glipglopbook.com</a> for further assistance.</p>
           <h5>“Can I meet people that live close to me?”</h5>
           <p>Yes! For college students, we recommend adding your campus information to your profile to help with local trades. Also, when initiating a trade with another trader, if you notice their address is close to you, you can set up an informal meeting at a public place.</p>
           <h5>“Do I have to sign up with Glip Glop in order to buy a book from someone?”</h5>
