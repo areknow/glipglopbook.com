@@ -61,7 +61,7 @@ Please reply directly to this email in order to start a conversation with '.$fir
 Once you have sold your book, remember to mark it as "sold" in your inventory.
 
   ';
-  $headers = "From: noreply@glipglopbook.com\r\nReply-to: $email";
+  $headers = "From: <GlipGlop>noreply@glipglopbook.com\r\nReply-to: $email";
   mail($to, $subject, $message, $headers);
   
   

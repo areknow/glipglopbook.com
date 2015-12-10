@@ -111,7 +111,7 @@ else {
           </a>
           <a href="category/"  class="menu-item">
             <div><i class="material-icons">library_books</i></div>
-            <div>Categories</div>
+            <div>Browse</div>
           </a>
           <a href="search/"  class="menu-item">
             <div><i class="material-icons">search</i></div>

@@ -88,7 +88,7 @@ else {
           </a>
           <a href="../category/"  class="menu-item">
             <div><i class="material-icons">library_books</i></div>
-            <div>Categories</div>
+            <div>Browse</div>
           </a>
           <a href="../search/"  class="menu-item">
             <div><i class="material-icons">search</i></div>
@@ -121,7 +121,7 @@ else {
             $buyercampus = $requests['buyercampus'];
             $message = $requests['message'];
             $datetime = new DateTime( $result['timestamp'] );
-            $timestamp = $datetime->format( 'd-m-Y' );
+            $timestamp = $datetime->format( 'm/d/Y' );
             ?>
             <li>
               <div class="collapsible-header row">

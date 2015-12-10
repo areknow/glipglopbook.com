@@ -42,7 +42,7 @@ Please click this link to activate your account before logging in:
 http://www.glipglopbook.com/php/verify.php?email='.$email.'&hash='.$ver.'
 
   ';
-  $headers = 'From:noreply@glipglopbook.com' . "\r\n";
+  $headers = 'From: <GlipGlop>noreply@glipglopbook.com' . "\r\n";
   mail($to, $subject, $message, $headers);
 
   //push user to first verify stage
