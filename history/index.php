@@ -120,7 +120,7 @@ else {
             $buyeremail = $requests['buyeremail'];
             $buyercampus = $requests['buyercampus'];
             $message = $requests['message'];
-            $datetime = new DateTime( $result['timestamp'] );
+            $datetime = new DateTime( $requests['timestamp'] );
             $timestamp = $datetime->format( 'm/d/Y' );
             ?>
             <li>
